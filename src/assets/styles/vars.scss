@@ -1,16 +1,33 @@
 :root {
-  --fg-base-01: 255, 255, 255;
-  --fg-base-02: 244, 247, 248;
-  --fg-base-03: 238, 242, 245;
-  --fg-base-04: 231, 239, 245;
-  --fg-base-05: 194, 208, 219;
-  --fg-base-06: 147, 166, 181;
-  --fg-base-07: 85, 108, 125;
+    /* Page primary background and icon fill for color inverted background (HEX #FFFFFF) */
+    --fg-base-01: 255, 255, 255;
+
+    /* Page secondary background, tile on primary background and background of static marker icons (HEX #F4F7F8) */
+    --fg-base-02: 244, 247, 248;
+
+    /* Hovered backgrounds for tiles (HEX #EEF2F5) */
+    --fg-base-03: 238, 242, 245;
+
+    /* Table borders, islands and blocks (HEX #E7EFF5) */
+    --fg-base-04: 231, 239, 245;
+
+    /* Hovered island border or other interactive blocks (HEX #C2D0DB) */
+    --fg-base-05: 194, 208, 219;
+
+    /* Hovered color for interactive interface icons with --tui-base-05 (HEX #93A6B5) */
+    --fg-base-06: 147, 166, 181;
+
+    /* For blocks with inverted background color (HEX #556C7D) */
+    --fg-base-07: 85, 108, 125;
 }
 
 :root {
-  --fg-primary: 26, 92, 255;
-  --fg-success: 80, 200, 120;
-  --fg-danger: 239, 78, 78;
-  --fg-warn: 255, 186, 0;
+    --fg-primary: 26, 92, 255;
+    --fg-success: 80, 200, 120;
+    --fg-danger: 239, 78, 78;
+    --fg-warn: 255, 186, 0;
+}
+
+:root {
+    --fg-text: 44, 62, 80;
 }

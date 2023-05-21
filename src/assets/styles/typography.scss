@@ -1,0 +1,60 @@
+.text {
+    &-heading {
+        font-weight: 800;
+
+        &-1 {
+            font-size: 56px;
+        }
+
+        &-2 {
+            font-size: 48px;
+        }
+
+        &-3 {
+            font-size: 40px;
+        }
+
+        &-4 {
+            font-size: 32px;
+        }
+
+        &-5 {
+            font-size: 24px;
+        }
+
+        &-6 {
+            font-size: 18px;
+        }
+    }
+
+    &-body {
+        &-bold {
+            font-weight: 700;
+        }
+
+        &-xl {
+            font-size: 19px;
+            letter-spacing: 0.02em;
+        }
+
+        &-l {
+            font-size: 17px;
+            letter-spacing: 0.02em;
+        }
+
+        &-m {
+            font-size: 15px;
+            letter-spacing: 0.02em;
+        }
+
+        &-s {
+            font-size: 13px;
+            letter-spacing: 0.03em;
+        }
+
+        &-xs {
+            font-size: 11px;
+            letter-spacing: 0.03em;
+        }
+    }
+}
