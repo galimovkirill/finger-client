@@ -1,13 +1,22 @@
 <template>
     <div class="app">
-        <DefaultLayout>
+        <Component :is="layout">
             <RouterView />
-        </DefaultLayout>
+        </Component>
     </div>
 </template>
 
 <script lang="ts" setup>
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import { capitalize, computed, defineAsyncComponent } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const layout = computed(() => {
+    const layoutFromMeta = router.currentRoute.value.meta.layout || 'default';
+    const layoutName = `${capitalize(layoutFromMeta)}Layout`;
+
+    return defineAsyncComponent(() => import(`@/layouts/${layoutName}.vue`));
+});
 </script>
 
 <style lang="scss"></style>

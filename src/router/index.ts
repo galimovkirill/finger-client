@@ -6,9 +6,23 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: () => import('../views/HomeView.vue')
+      component: () => import('@/views/LoginView.vue')
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      meta: {
+        layout: "centered"
+      },
+      component: () => import('@/views/LoginView.vue')
     }
   ]
 })
+
+declare module 'vue-router' {
+  interface RouteMeta {
+    layout?: 'centered'
+  }
+}
 
 export default router
