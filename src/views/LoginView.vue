@@ -1,7 +1,9 @@
 <template>
-    <LoginForm />
+    <BaseButtonDemo />
 </template>
 
 <script lang="ts" setup>
-import LoginForm from '@/components/Forms/LoginForm.vue';
+import BaseButtonDemo from '@/components/Base/Button/BaseButtonDemo.vue';
 </script>
+
+<style lang="scss"></style>
