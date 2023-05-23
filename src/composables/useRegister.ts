@@ -5,6 +5,8 @@ export const useRegister = () => {
     const password = ref('');
     const passwordRepeat = ref('');
 
+    const isPolicyAgreed = ref(false);
+
     const submitRegister = () => {
         console.log('Form data: ', { login, password, passwordRepeat });
     };
@@ -13,6 +15,7 @@ export const useRegister = () => {
         login,
         password,
         passwordRepeat,
+        isPolicyAgreed,
         submitRegister
     };
 };

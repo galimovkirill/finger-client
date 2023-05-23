@@ -1,6 +1,6 @@
 <template>
     <form class="register-form" @submit.prevent="submitRegister">
-        <h1 class="text-heading-5 login-form__heading">Регистрация</h1>
+        <h1 class="text-heading-5 register-form__heading">Регистрация</h1>
 
         <div class="register-fields">
             <BaseInput v-model="login" placeholder="Электронный адрес" type="email">
@@ -28,6 +28,12 @@
             </BaseInput>
         </div>
 
+        <div class="register-agreements">
+            <BaseCheckbox v-model="isPolicyAgreed" id="privacy-policy">
+                Принимаю условия пользовательского соглашения
+            </BaseCheckbox>
+        </div>
+
         <div class="register-actions">
             <BaseButton native-type="submit">Зарегистрироваться</BaseButton>
             <BaseButton type="border" :to="{ name: 'Login' }">У меня есть аккаунт</BaseButton>
@@ -42,13 +48,18 @@ import SvgIcon from '@/components/SvgIcon.vue';
 import IconEmail from '@/icons/IconEmail.vue';
 import IconLock from '@/icons/IconLock.vue';
 import { useRegister } from '@/composables/useRegister';
+import BaseCheckbox from '@/components/Base/Checkbox/BaseCheckbox.vue';
 
-const { login, password, passwordRepeat, submitRegister } = useRegister();
+const { login, password, passwordRepeat, isPolicyAgreed, submitRegister } = useRegister();
 </script>
 
 <style lang="scss">
 .register-form {
     min-width: 300px;
+
+    &__heading {
+        margin-bottom: 16px;
+    }
 }
 
 .register-fields {
@@ -59,6 +70,10 @@ const { login, password, passwordRepeat, submitRegister } = useRegister();
 .register-actions {
     display: grid;
     gap: 8px;
+    margin-top: 24px;
+}
+
+.register-agreements {
     margin-top: 24px;
 }
 </style>
