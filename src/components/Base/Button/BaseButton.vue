@@ -7,7 +7,7 @@
         :style="{ '--color-mode': `var(--fg-${color})` }"
         @click="onClickHandler"
     >
-        <BaseLoader v-if="loading" class="button__loader" />
+        <BaseLoader v-if="loading" class="button__loader" :size="loaderSettings.size" :width="loaderSettings.width" />
 
         <div class="button__content">
             <slot></slot>
@@ -105,6 +105,18 @@ const componentClasses = computed(() => {
     return classes;
 });
 
+const loaderSettings = computed(() => {
+    switch (props.size) {
+        case 'large':
+            return { size: '26px', width: '4px' };
+        case 'small':
+            return { size: '14px', width: '2px' };
+        case 'medium':
+        default:
+            return { size: '20px', width: '3px' };
+    }
+});
+
 const onClickHandler = (event: MouseEvent) => {
     if (!isMounted.value) {
         return;
@@ -171,6 +183,7 @@ const onClickHandler = (event: MouseEvent) => {
     }
 
     &--loading {
+        pointer-events: none;
         #{$self}__content {
             opacity: 0;
         }
