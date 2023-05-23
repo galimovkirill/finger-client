@@ -110,7 +110,7 @@ import BaseButton from './BaseButton.vue';
 import { ref } from 'vue';
 import type { BaseButtonSize, BaseButtonColor } from './BaseButton';
 
-const color = ref<BaseButtonColor>('success');
+const color = ref<BaseButtonColor>('primary');
 const size = ref<BaseButtonSize>('medium');
 const uppercase = ref(false);
 const expanded = ref(false);

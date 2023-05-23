@@ -5,6 +5,7 @@
         :class="componentClasses"
         class="button"
         :style="{ '--color-mode': `var(--fg-${color})` }"
+        @click="onClickHandler"
     >
         <BaseLoader v-if="loading" class="button__loader" />
 
@@ -19,12 +20,15 @@ import { computed, type ButtonHTMLAttributes, type AnchorHTMLAttributes } from '
 import type { BaseButtonProps } from './BaseButton';
 import type { RouterLinkProps } from 'vue-router';
 import BaseLoader from '@/components/Base/Loader/BaseLoader.vue';
+import { useMounted, useTimeoutFn } from '@vueuse/core';
 
 const props = withDefaults(defineProps<BaseButtonProps>(), {
     type: 'default',
     size: 'medium',
     color: 'primary'
 });
+
+const isMounted = useMounted();
 
 const isLink = computed(() => Boolean(props.to));
 
@@ -100,6 +104,33 @@ const componentClasses = computed(() => {
 
     return classes;
 });
+
+const onClickHandler = (event: MouseEvent) => {
+    if (!isMounted.value) {
+        return;
+    }
+
+    const button = event.currentTarget as HTMLButtonElement;
+    const rect = button.getBoundingClientRect();
+
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    const w = button.offsetWidth;
+
+    const ripple = document.createElement('span');
+
+    ripple.className = 'button__ripple';
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    ripple.style.zIndex = '1';
+    ripple.style.setProperty('--ripple-scale', String(w));
+
+    button.appendChild(ripple);
+
+    useTimeoutFn(() => {
+        ripple.parentNode?.removeChild(ripple);
+    }, 400);
+};
 </script>
 
 <style lang="scss">
@@ -115,6 +146,7 @@ const componentClasses = computed(() => {
     user-select: none;
     transition: all $transitionDuration ease;
     box-sizing: border-box;
+    overflow: hidden;
 
     &__loader {
         position: absolute;
@@ -228,6 +260,30 @@ const componentClasses = computed(() => {
         padding-left: 8px;
         padding-right: 8px;
         border-radius: var(--fg-form-element-border-radius-small);
+    }
+}
+</style>
+
+<style lang="scss">
+.button {
+    &__ripple {
+        width: 2px;
+        height: 2px;
+        position: absolute;
+        border-radius: 50%;
+        background-color: rgba(var(--fg-base-01), 0.1);
+        animation: rippleEffect 0.4s ease-in-out;
+        z-index: 5;
+    }
+}
+
+@keyframes rippleEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(var(--ripple-scale));
     }
 }
 </style>
