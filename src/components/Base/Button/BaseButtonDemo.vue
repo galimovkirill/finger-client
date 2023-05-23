@@ -6,19 +6,34 @@
                 :color="color"
                 :size="size"
                 :uppercase="uppercase"
-                active
+                :active="activeIndex === 0"
                 :loading="loading"
+                @click="activeIndex = 0"
             >
+                <template #prepend>
+                    <SvgIcon>
+                        <UserIcon />
+                    </SvgIcon>
+                </template>
+
                 Active
             </BaseButton>
             <BaseButton
                 :expanded="expanded"
                 :color="color"
                 :size="size"
+                :active="activeIndex === 1"
                 :uppercase="uppercase"
                 :loading="loading"
+                @click="activeIndex = 1"
             >
                 Default
+
+                <template #append>
+                    <SvgIcon>
+                        <UserIcon />
+                    </SvgIcon>
+                </template>
             </BaseButton>
             <BaseButton
                 :expanded="expanded"
@@ -39,8 +54,9 @@
                 :size="size"
                 :uppercase="uppercase"
                 type="flat"
-                active
+                :active="activeIndex === 0"
                 :loading="loading"
+                @click="activeIndex = 0"
             >
                 Active
             </BaseButton>
@@ -49,8 +65,10 @@
                 :color="color"
                 :size="size"
                 :uppercase="uppercase"
+                :active="activeIndex === 1"
                 type="flat"
                 :loading="loading"
+                @click="activeIndex = 1"
             >
                 Default
             </BaseButton>
@@ -74,8 +92,9 @@
                 :size="size"
                 :uppercase="uppercase"
                 type="border"
-                active
+                :active="activeIndex === 0"
                 :loading="loading"
+                @click="activeIndex = 0"
             >
                 Active
             </BaseButton>
@@ -84,8 +103,10 @@
                 :color="color"
                 :size="size"
                 :uppercase="uppercase"
+                :active="activeIndex === 1"
                 type="border"
                 :loading="loading"
+                @click="activeIndex = 1"
             >
                 Default
             </BaseButton>
@@ -109,9 +130,12 @@ import DemoWrapper from '@/components/Demo/DemoWrapper.vue';
 import BaseButton from './BaseButton.vue';
 import { ref } from 'vue';
 import type { BaseButtonSize, BaseButtonColor } from './BaseButton';
+import SvgIcon from '@/components/SvgIcon.vue';
+import UserIcon from '@/icons/UserIcon.vue';
 
-const color = ref<BaseButtonColor>('primary');
-const size = ref<BaseButtonSize>('small');
+const activeIndex = ref(0);
+const color = ref<BaseButtonColor>('danger');
+const size = ref<BaseButtonSize>('medium');
 const uppercase = ref(false);
 const expanded = ref(false);
 const loading = ref(false);

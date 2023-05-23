@@ -7,11 +7,26 @@
         :style="{ '--color-mode': `var(--fg-${color})` }"
         @click="onClickHandler"
     >
-        <BaseLoader v-if="loading" class="button__loader" :size="loaderSettings.size" :width="loaderSettings.width" />
+        <div class="button__wrapper">
+            <div v-if="$slots.prepend" class="button__prepend">
+                <slot name="prepend"></slot>
+            </div>
 
-        <div class="button__content">
-            <slot></slot>
+            <div class="button__content">
+                <slot></slot>
+            </div>
+
+            <div v-if="$slots.append" class="button__append">
+                <slot name="append"></slot>
+            </div>
         </div>
+
+        <BaseLoader
+            v-if="loading"
+            class="button__loader"
+            :size="loaderSettings.size"
+            :width="loaderSettings.width"
+        />
     </Component>
 </template>
 
@@ -152,8 +167,10 @@ const onClickHandler = (event: MouseEvent) => {
 .button {
     $self: &;
     $transitionDuration: 0.25s;
+    $additionalMargin: 4px;
 
     position: relative;
+
     cursor: pointer;
     user-select: none;
     transition: all $transitionDuration ease;
@@ -166,6 +183,19 @@ const onClickHandler = (event: MouseEvent) => {
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 5;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    &__append {
+        margin-left: $additionalMargin;
+    }
+
+    &__prepend {
+        margin-right: $additionalMargin;
     }
 
     // Simple modifiers
@@ -184,7 +214,7 @@ const onClickHandler = (event: MouseEvent) => {
 
     &--loading {
         pointer-events: none;
-        #{$self}__content {
+        #{$self}__wrapper {
             opacity: 0;
         }
     }
@@ -199,6 +229,13 @@ const onClickHandler = (event: MouseEvent) => {
         &:hover {
             box-shadow: 0px 10px 20px -10px rgb(var(--color-mode));
             transform: translateY(-3px);
+        }
+
+        &#{$self}--active {
+            &:hover {
+                transform: translate(0);
+                box-shadow: none;
+            }
         }
     }
 
