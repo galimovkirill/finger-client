@@ -171,6 +171,11 @@ const onClickHandler = (event: MouseEvent) => {
 
     position: relative;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
     cursor: pointer;
     user-select: none;
     transition: all $transitionDuration ease;
@@ -188,6 +193,7 @@ const onClickHandler = (event: MouseEvent) => {
     &__wrapper {
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     &__append {
