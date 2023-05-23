@@ -315,7 +315,7 @@ const onClickHandler = (event: MouseEvent) => {
 </style>
 
 <style lang="scss">
-.button {
+.fg-button {
     &__ripple {
         width: 2px;
         height: 2px;
