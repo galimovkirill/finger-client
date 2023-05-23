@@ -3,27 +3,27 @@
         :is="componentTag"
         v-bind="componentAttrs"
         :class="componentClasses"
-        class="button"
+        class="fg-button"
         :style="{ '--color-mode': `var(--fg-${color})` }"
         @click="onClickHandler"
     >
-        <div class="button__wrapper">
-            <div v-if="$slots.prepend" class="button__prepend">
+        <div class="fg-button__wrapper">
+            <div v-if="$slots.prepend" class="fg-button__prepend">
                 <slot name="prepend"></slot>
             </div>
 
-            <div class="button__content">
+            <div class="fg-button__content">
                 <slot></slot>
             </div>
 
-            <div v-if="$slots.append" class="button__append">
+            <div v-if="$slots.append" class="fg-button__append">
                 <slot name="append"></slot>
             </div>
         </div>
 
         <BaseLoader
             v-if="loading"
-            class="button__loader"
+            class="fg-button__loader"
             :size="loaderSettings.size"
             :width="loaderSettings.width"
         />
@@ -93,28 +93,28 @@ const componentAttrs = computed(() => {
 const componentClasses = computed(() => {
     const classes: string[] = [];
 
-    classes.push(`button--${props.type}`);
-    classes.push(`button--${props.size}`);
-    classes.push(`button--${props.color}`);
+    classes.push(`fg-button--${props.type}`);
+    classes.push(`fg-button--${props.size}`);
+    classes.push(`fg-button--${props.color}`);
 
     if (props.disabled) {
-        classes.push('button--disabled');
+        classes.push('fg-button--disabled');
     }
 
     if (props.uppercase) {
-        classes.push('button--uppercase');
+        classes.push('fg-button--uppercase');
     }
 
     if (props.active) {
-        classes.push('button--active');
+        classes.push('fg-button--active');
     }
 
     if (props.expanded) {
-        classes.push('button--expanded');
+        classes.push('fg-button--expanded');
     }
 
     if (props.loading) {
-        classes.push('button--loading');
+        classes.push('fg-button--loading');
     }
 
     return classes;
@@ -146,7 +146,7 @@ const onClickHandler = (event: MouseEvent) => {
 
     const ripple = document.createElement('span');
 
-    ripple.className = 'button__ripple';
+    ripple.className = 'fg-button__ripple';
     ripple.style.left = `${x}px`;
     ripple.style.top = `${y}px`;
     ripple.style.zIndex = '1';
@@ -164,7 +164,7 @@ const onClickHandler = (event: MouseEvent) => {
 @import '@/assets/styles/mixin.scss';
 @import '@/assets/styles/typography.scss';
 
-.button {
+.fg-button {
     $self: &;
     $transitionDuration: 0.25s;
     $additionalMargin: 4px;
