@@ -2,7 +2,6 @@
     <svg
         viewBox="0 0 18 18"
         xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
         :width="width"
         :height="height"
     >
