@@ -1,9 +1,9 @@
 <template>
-    <BaseButtonDemo />
+    <BaseInputDemo />
 </template>
 
 <script lang="ts" setup>
-import BaseButtonDemo from '@/components/Base/Button/BaseButtonDemo.vue';
+import BaseInputDemo from '@/components/Base/Input/BaseInputDemo.vue';
 </script>
 
 <style lang="scss"></style>

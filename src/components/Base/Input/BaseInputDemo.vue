@@ -6,15 +6,24 @@
             <BaseInput v-model="inputValue2" placeholder="Enter your name">
                 <template #icon>
                     <SvgIcon>
-                        <UserIcon />
+                        <IconUser />
                     </SvgIcon>
                 </template>
             </BaseInput>
 
-            <BaseInput v-model="inputValue2" placeholder="Enter your name" icon-position="end">
+            <BaseInput
+                v-model="inputValue2"
+                placeholder="Enter your name"
+                icon-position="end"
+                type="password"
+                clickable-icon
+                :visible-password="isPasswordVisible"
+                @iconClick="isPasswordVisible = !isPasswordVisible"
+            >
                 <template #icon>
                     <SvgIcon>
-                        <UserIcon />
+                        <IconEyeCrossed v-if="isPasswordVisible" />
+                        <IconEye v-else />
                     </SvgIcon>
                 </template>
             </BaseInput>
@@ -26,11 +35,15 @@
 import DemoWrapper from '@/components/Demo/DemoWrapper.vue';
 import BaseInput from './BaseInput.vue';
 import SvgIcon from '@/components/SvgIcon.vue';
-import UserIcon from '@/icons/UserIcon.vue';
+import IconUser from '@/icons/IconUser.vue';
+import IconEye from '@/icons/IconEye.vue';
+import IconEyeCrossed from '@/icons/IconEyeCrossed.vue';
 import { ref } from 'vue';
 
 const inputValue1 = ref(0);
 const inputValue2 = ref('');
+
+const isPasswordVisible = ref(false);
 </script>
 
 <style lang="scss">

@@ -3,7 +3,7 @@
         <div class="fg-input__wrapper">
             <input
                 ref="inputTarget"
-                :type="type"
+                :type="visiblePassword ? 'text' : type"
                 :value="modelValue"
                 :placeholder="placeholder"
                 class="fg-input__element"
@@ -12,7 +12,7 @@
 
             <div v-if="!modelValue" class="fg-input__placeholder">{{ placeholder }}</div>
 
-            <div v-if="$slots.icon" class="fg-input__icon">
+            <div v-if="$slots.icon" class="fg-input__icon" @click="$emit('iconClick')">
                 <slot name="icon"></slot>
             </div>
         </div>
@@ -35,6 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
     'update:modelValue': [value: string | number];
+    iconClick: [];
 }>();
 
 const slots = useSlots();
@@ -43,8 +44,11 @@ const inputClasses = computed(() => {
     const classes: string[] = [];
 
     if (slots.icon) {
-        // classes.push('fg-input--has-icon');
         classes.push(`fg-input--icon-${props.iconPosition}`);
+    }
+
+    if (props.clickableIcon) {
+        classes.push('fg-input--clickable-icon');
     }
 
     if (isInputFocused.value) {
@@ -124,6 +128,12 @@ const { focused: isInputFocused } = useFocus(inputTarget);
 
         border-radius: var(--fg-form-element-border-radius-medium);
         transition: all 0.2s ease;
+    }
+
+    &--clickable-icon {
+        #{$self}__icon {
+            cursor: pointer;
+        }
     }
 
     &--icon-start {

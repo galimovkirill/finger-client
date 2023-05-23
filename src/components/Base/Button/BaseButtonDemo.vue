@@ -12,7 +12,7 @@
             >
                 <template #prepend>
                     <SvgIcon>
-                        <UserIcon />
+                        <IconUser />
                     </SvgIcon>
                 </template>
 
@@ -31,7 +31,7 @@
 
                 <template #append>
                     <SvgIcon>
-                        <UserIcon />
+                        <IconUser />
                     </SvgIcon>
                 </template>
             </BaseButton>
@@ -131,7 +131,7 @@ import BaseButton from './BaseButton.vue';
 import { ref } from 'vue';
 import type { BaseButtonSize, BaseButtonColor } from './BaseButton';
 import SvgIcon from '@/components/SvgIcon.vue';
-import UserIcon from '@/icons/UserIcon.vue';
+import IconUser from '@/icons/IconUser.vue';
 
 const activeIndex = ref(0);
 const color = ref<BaseButtonColor>('danger');
