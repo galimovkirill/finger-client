@@ -23,13 +23,21 @@ const router = createRouter({
                 layout: 'centered'
             },
             component: () => import('@/views/RegisterView.vue')
+        },
+        {
+            path: '/docs',
+            name: 'DocsHome',
+            meta: {
+                layout: 'docs'
+            },
+            component: () => import('@/views/docs/Home.vue')
         }
     ]
 });
 
 declare module 'vue-router' {
     interface RouteMeta {
-        layout?: 'centered';
+        layout?: 'centered' | 'docs';
     }
 }
 
