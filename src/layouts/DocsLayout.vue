@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import DocsSidebar from '@/components/Docs/Layout/DocsSidebar.vue';
+import DocsSidebar from '@/components/Docs/Layout/Sidebar/DocsSidebar.vue';
 import DocsHeader from '@/components/Docs/Layout/DocsHeader.vue';
 </script>
 
@@ -29,7 +29,7 @@ $verticalPadding: 64px;
         top: 0;
         transform: translateX(-100%);
         height: 100%;
-        max-width: 280px;
+        max-width: 320px;
         padding-top: $verticalPadding;
     }
 }

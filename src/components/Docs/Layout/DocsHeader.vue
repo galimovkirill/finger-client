@@ -28,7 +28,7 @@
 import SvgIcon from '@/components/SvgIcon.vue';
 import IconGithub from '@/icons/socials/IconGithub.vue';
 import IconTelegram from '@/icons/socials/IconTelegram.vue';
-import { ref, type Component } from 'vue';
+import type { Component } from 'vue';
 
 interface Social {
     name: string;
@@ -36,10 +36,10 @@ interface Social {
     icon: Component;
 }
 
-const socials = ref<Social[]>([
+const socials: Social[] = [
     { name: 'Github', link: '#', icon: IconGithub },
     { name: 'Telegram', link: '#', icon: IconTelegram }
-]);
+];
 </script>
 
 <style lang="scss">
