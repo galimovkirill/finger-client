@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import docsRoutes from './docs';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,14 +25,7 @@ const router = createRouter({
             },
             component: () => import('@/views/RegisterView.vue')
         },
-        {
-            path: '/docs',
-            name: 'DocsHome',
-            meta: {
-                layout: 'docs'
-            },
-            component: () => import('@/views/docs/Home.vue')
-        }
+        ...docsRoutes
     ]
 });
 

@@ -24,7 +24,6 @@
 <script lang="ts" setup>
 import DocsSidebarItem from '@/components/Docs/Layout/Sidebar/DocsSidebarItem.vue';
 import SvgIcon from '@/components/SvgIcon.vue';
-import IconDashboard from '@/icons/IconDashboard.vue';
 import { ref, type Component } from 'vue';
 
 export interface Props {

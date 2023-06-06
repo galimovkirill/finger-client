@@ -39,7 +39,7 @@ import DocsSidebarGroup from '@/components/Docs/Layout/Sidebar/DocsSidebarGroup.
 import DocsSidebarItem from '@/components/Docs/Layout/Sidebar/DocsSidebarItem.vue';
 import SvgIcon from '@/components/SvgIcon.vue';
 import IconDashboard from '@/icons/IconDashboard.vue';
-import { ref, type Component } from 'vue';
+import { ref, type Component, shallowRef } from 'vue';
 
 interface ActiveItem {
     highLevelIndex: number;
@@ -61,7 +61,7 @@ const active = ref<ActiveItem>({
     lowLevelIndex: -1
 });
 
-const items = ref<SidebarItem[]>([
+const items = shallowRef<SidebarItem[]>([
     {
         name: 'Getting Started',
         icon: IconDashboard,
