@@ -1,11 +1,14 @@
 import type { ButtonHTMLAttributes } from 'vue';
 import type { RouteLocationRaw } from 'vue-router';
 
-type BaseButtonType = 'default' | 'flat' | 'border';
+export const BaseButtonTypes = ['default', 'flat', 'border'] as const;
+type BaseButtonType = (typeof BaseButtonTypes)[number];
 
-type BaseButtonColor = 'primary' | 'success' | 'danger';
+export const BaseButtonColors = ['primary', 'success', 'danger'];
+type BaseButtonColor = (typeof BaseButtonColors)[number];
 
-type BaseButtonSize = 'large' | 'medium' | 'small';
+export const BaseButtonSizes = ['large', 'medium', 'small'] as const;
+type BaseButtonSize = (typeof BaseButtonSizes)[number];
 
 export interface BaseButtonProps {
     type?: BaseButtonType;
