@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import docsRoutes from './docs';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,13 +24,12 @@ const router = createRouter({
             },
             component: () => import('@/views/RegisterView.vue')
         },
-        ...docsRoutes
     ]
 });
 
 declare module 'vue-router' {
     interface RouteMeta {
-        layout?: 'centered' | 'docs';
+        layout?: 'centered';
     }
 }
 
