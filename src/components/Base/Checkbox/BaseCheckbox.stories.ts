@@ -23,9 +23,9 @@ export const Default: Story = {
         template: `
             <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
                 <BaseCheckbox id="privacy-policy">
-                    Принимаю условия пользовательского соглашения
+                    I accept the terms of the <a href="#" target="_blank">User Agreement</a>
                 </BaseCheckbox>
             </div>
         `
     })
-}
+};

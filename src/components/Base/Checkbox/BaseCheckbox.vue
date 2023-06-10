@@ -40,7 +40,7 @@ const onChange = (value: boolean) => {
     &__hidden-element {
         display: none;
 
-        &:checked + label .checkbox__element {
+        &:checked + label .fg-checkbox__element {
             border-color: getColor('primary');
 
             &:after {
