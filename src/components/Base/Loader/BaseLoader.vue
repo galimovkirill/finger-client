@@ -1,6 +1,6 @@
 <template>
-    <div class="loader">
-        <span class="loader__circle" :style="style" />
+    <div class="fg-loader">
+        <span class="fg-loader__circle" :style="style" />
     </div>
 </template>
 
@@ -23,7 +23,7 @@ const style = computed<HTMLAttributes['style']>(() => ({
 <style lang="scss">
 @import '@/assets/styles/mixin.scss';
 
-.loader {
+.fg-loader {
     cursor: pointer;
     pointer-events: none;
     display: flex;

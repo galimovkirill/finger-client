@@ -1,17 +1,17 @@
 <template>
-    <div class="checkbox">
+    <div class="fg-checkbox">
         <input
             :id="id"
             type="checkbox"
-            class="checkbox__hidden-element"
+            class="fg-checkbox__hidden-element"
             :checked="modelValue"
             @change="onChange(($event.target as HTMLInputElement).checked)"
         />
 
-        <label :for="id" class="checkbox__label">
-            <span class="checkbox__element"></span>
+        <label :for="id" class="fg-checkbox__label">
+            <span class="fg-checkbox__element"></span>
 
-            <span v-if="$slots.default" class="checkbox__text">
+            <span v-if="$slots.default" class="fg-checkbox__text">
                 <slot></slot>
             </span>
         </label>
@@ -36,7 +36,7 @@ const onChange = (value: boolean) => {
 @import '@/assets/styles/typography.scss';
 @import '@/assets/styles/mixin.scss';
 
-.checkbox {
+.fg-checkbox {
     &__hidden-element {
         display: none;
 
