@@ -3,20 +3,29 @@
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         :width="width"
-        :height="height"
+        :height="computedHeight"
     >
         <slot></slot>
     </svg>
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
+
 export interface Props {
     width?: number;
     height?: number;
 }
 
-withDefaults(defineProps<Props>(), {
-    width: 18,
-    height: 18
+const props = withDefaults(defineProps<Props>(), {
+    width: 18
+});
+
+const computedHeight = computed(() => {
+    if (props.height) {
+        return props.height;
+    }
+
+    return props.width;
 });
 </script>
