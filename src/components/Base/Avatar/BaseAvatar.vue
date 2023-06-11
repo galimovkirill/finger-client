@@ -91,8 +91,8 @@ export default {
     white-space: nowrap;
     user-select: none;
 
-    background-color: getColor('base-04');
-    border-radius: 30%;
+    background-color: getColor('base-02');
+    border-radius: 34%;
     font-size: 0.8rem;
 
     img {
