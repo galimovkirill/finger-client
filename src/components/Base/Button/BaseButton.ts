@@ -4,7 +4,7 @@ import type { RouteLocationRaw } from 'vue-router';
 export const BaseButtonTypes = ['default', 'flat', 'border'] as const;
 type BaseButtonType = (typeof BaseButtonTypes)[number];
 
-export const BaseButtonColors = ['primary', 'success', 'danger'];
+export const BaseButtonColors = ['primary', 'success', 'danger'] as const;
 type BaseButtonColor = (typeof BaseButtonColors)[number];
 
 export const BaseButtonSizes = ['large', 'medium', 'small'] as const;
