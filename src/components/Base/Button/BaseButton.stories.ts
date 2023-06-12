@@ -122,7 +122,7 @@ export const Loading: Story = {
 
         template: `
             <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton v-for="size in BaseButtonSizes" :key="size" :size="size" loading />
+                <BaseButton v-for="size in BaseButtonSizes" :key="size" :size="size" loading>Loading</BaseButton>
             </div>
         `
     })
