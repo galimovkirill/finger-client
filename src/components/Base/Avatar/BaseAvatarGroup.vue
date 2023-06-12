@@ -89,7 +89,7 @@ $avatarBorderWidth: 2px;
         position: absolute;
         left: $avatarBorderWidth;
         top: $avatarBorderWidth;
-        background-color: getColor('base-06', 0.8);
+        background-color: rgba(0, 0, 0, 0.6);
         width: calc(100% - calc($avatarBorderWidth * 2));
         height: calc(100% - calc($avatarBorderWidth * 2));
         border-radius: 34%; // Same as avatar border-radius
