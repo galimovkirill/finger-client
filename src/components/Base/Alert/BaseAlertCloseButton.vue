@@ -1,5 +1,5 @@
 <template>
-    <div class="fg-alert-close"></div>
+    <button class="fg-alert-close"></button>
 </template>
 
 <style lang="scss">
