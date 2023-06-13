@@ -1,5 +1,5 @@
 <template>
-    <div class="fg-checkbox">
+    <div class="fg-checkbox" :style="{ '--color-mode': `var(--fg-${color})` }">
         <input
             :id="id"
             type="checkbox"
@@ -33,7 +33,9 @@
 <script lang="ts" setup>
 import type { BaseCheckboxProps } from './BaseCheckbox';
 
-defineProps<BaseCheckboxProps>();
+withDefaults(defineProps<BaseCheckboxProps>(), {
+    color: 'primary'
+});
 
 const emit = defineEmits<{
     'update:modelValue': [value: boolean];
@@ -56,7 +58,7 @@ const onChange = (value: boolean) => {
 
         &:checked + label {
             #{$self}__element {
-                border-color: getColor('primary');
+                border-color: rgb(var(--color-mode));
 
                 &:after {
                     transform: translate(-50%, -50%) scale(1);
@@ -108,10 +110,10 @@ const onChange = (value: boolean) => {
             transform: translate(-50%, -50%) scale(0);
             width: calc(100% + 2px);
             height: calc(100% + 2px);
-            background-color: getColor('primary');
+            background-color: rgb(var(--color-mode));
             border-radius: $borderRadius;
             transition: 0.3s;
-            box-shadow: 0 5px 18px 0 getColor('primary', 0.3);
+            box-shadow: 0 5px 18px 0 rgba(var(--color-mode), 0.3);
         }
     }
 
