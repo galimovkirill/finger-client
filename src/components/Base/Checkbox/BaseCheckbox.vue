@@ -4,7 +4,7 @@
             :id="id"
             type="checkbox"
             class="fg-checkbox__hidden-element"
-            :checked="modelValue"
+            :checked="isChecked"
             @change="onChange(($event.target as HTMLInputElement).checked)"
         />
 
@@ -31,18 +31,42 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
 import type { BaseCheckboxProps } from './BaseCheckbox';
 
-withDefaults(defineProps<BaseCheckboxProps>(), {
+const props = withDefaults(defineProps<BaseCheckboxProps>(), {
     color: 'primary'
 });
 
 const emit = defineEmits<{
-    'update:modelValue': [value: boolean];
+    'update:modelValue': [value: typeof props.modelValue];
 }>();
 
+const isChecked = computed(() => {
+    if (Array.isArray(props.modelValue)) {
+        return props.modelValue.includes(props.value);
+    }
+
+    return props.modelValue;
+});
+
 const onChange = (value: boolean) => {
-    emit('update:modelValue', value);
+    if (!Array.isArray(props.modelValue)) {
+        emit('update:modelValue', value);
+        return;
+    }
+
+    const result = [...props.modelValue];
+
+    if (props.modelValue.includes(props.value)) {
+        const index = props.modelValue.findIndex((i) => i === props.value);
+        result.splice(index, 1);
+        emit('update:modelValue', result);
+        return;
+    }
+
+    result.push(props.value);
+    emit('update:modelValue', result);
 };
 </script>
 
