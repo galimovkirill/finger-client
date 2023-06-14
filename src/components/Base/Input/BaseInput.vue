@@ -24,11 +24,7 @@ import { computed, ref, useSlots } from 'vue';
 import type { BaseInputProps } from './BaseInput';
 import { useFocus } from '@vueuse/core';
 
-export interface Props extends BaseInputProps {
-    modelValue: string | number;
-}
-
-const props = withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<BaseInputProps>(), {
     type: 'text',
     iconPosition: 'start'
 });
