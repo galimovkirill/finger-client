@@ -1,14 +1,15 @@
 <template>
     <div class="fg-checkbox" :style="{ '--color-mode': `var(--fg-${color})` }">
+        <pre>{{ isChecked }}</pre>
         <input
-            :id="id"
+            :id="id.toString()"
             type="checkbox"
             class="fg-checkbox__hidden-element"
             :checked="isChecked"
             @change="onChange(($event.target as HTMLInputElement).checked)"
         />
 
-        <label :for="id" class="fg-checkbox__label">
+        <label :for="id.toString()" class="fg-checkbox__label">
             <span class="fg-checkbox__element">
                 <svg
                     class="fg-checkbox__checkmark"
@@ -33,6 +34,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 import type { BaseCheckboxProps } from './BaseCheckbox';
+import { some, isObject } from 'lodash';
 
 const props = withDefaults(defineProps<BaseCheckboxProps>(), {
     color: 'primary'
@@ -44,6 +46,10 @@ const emit = defineEmits<{
 
 const isChecked = computed(() => {
     if (Array.isArray(props.modelValue)) {
+        if (isObject(props.value)) {
+            return some(props.modelValue, props.value || '');
+        }
+
         return props.modelValue.includes(props.value);
     }
 
@@ -58,8 +64,14 @@ const onChange = (value: boolean) => {
 
     const result = [...props.modelValue];
 
-    if (props.modelValue.includes(props.value)) {
-        const index = props.modelValue.findIndex((i) => i === props.value);
+    if (
+        (isObject(props.value) && some(props.modelValue, props.value || '')) ||
+        props.modelValue.includes(props.value)
+    ) {
+        const index = props.modelValue.findIndex(
+            (i) => JSON.stringify(i) === JSON.stringify(props.value)
+        );
+
         result.splice(index, 1);
         emit('update:modelValue', result);
         return;

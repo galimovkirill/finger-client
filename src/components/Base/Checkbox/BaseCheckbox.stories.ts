@@ -55,8 +55,8 @@ export const MultipleChoiceWithPrimitives: Story = {
         components: { BaseCheckbox },
 
         setup() {
-            const strings = ['HTML', 'CSS', 'JavaScript', 'Vue', 'React', 'Angular']
-            const selectedStrings = ref<string[]>([])
+            const strings = ['HTML', 'CSS', 'JavaScript', 'Vue', 'React', 'Angular'];
+            const selectedStrings = ref<string[]>([]);
 
             return { args, strings, selectedStrings };
         },
@@ -74,6 +74,46 @@ export const MultipleChoiceWithPrimitives: Story = {
                 <div class="sb-flex sb-items-center sb-justify-center sb-gap-6">
                     <BaseCheckbox v-model="selectedStrings" v-for="string in strings" :key="string" :id="string" :value="string">
                         {{ string }}
+                    </BaseCheckbox>
+                </div>
+            </div>
+        `
+    })
+};
+
+export const MultipleChoiceWithObjects: Story = {
+    render: (args) => ({
+        components: { BaseCheckbox },
+
+        setup() {
+            interface Object {
+                id: number;
+                title: string;
+            }
+
+            const objects: Object[] = [
+                { id: 0, title: 'Telegram' },
+                { id: 1, title: 'Facebook' },
+                { id: 2, title: 'Discord' }
+            ];
+            const selectedObjects = ref<string[]>([]);
+
+            return { args, objects, selectedObjects };
+        },
+
+        template: `
+            <div class="sb-flex sb-flex-col sb-items-center sb-justify-center sb-gap-6">
+                <div v-if="selectedObjects.length > 0" class="sb-flex sb-items-center sb-justify-center sb-gap-6">
+                    Selected objects:
+
+                    <span v-for="object in selectedObjects" :key="object.id">
+                        {{ object }}
+                    </span>
+                </div>
+
+                <div class="sb-flex sb-items-center sb-justify-center sb-gap-6">
+                    <BaseCheckbox v-model="selectedObjects" v-for="object in objects" :key="object.id" :id="object.id" :value="object">
+                        {{ object }}
                     </BaseCheckbox>
                 </div>
             </div>
