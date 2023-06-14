@@ -1,6 +1,5 @@
 <template>
     <div class="fg-checkbox" :style="{ '--color-mode': `var(--fg-${color})` }">
-        <pre>{{ isChecked }}</pre>
         <input
             :id="id.toString()"
             type="checkbox"
