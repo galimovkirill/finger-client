@@ -120,3 +120,25 @@ export const MultipleChoiceWithObjects: Story = {
         `
     })
 };
+
+export const LabelBefore: Story = {
+    render: (args) => ({
+        components: { BaseCheckbox },
+
+        setup() {
+            return { args };
+        },
+
+        template: `
+            <div class="sb-flex sb-flex-col sb-items-center sb-justify-center sb-gap-6">
+                <BaseCheckbox id="default-label">
+                    Default label
+                </BaseCheckbox>
+
+                <BaseCheckbox label-before id="label-before">
+                    Label Before
+                </BaseCheckbox>
+            </div>
+        `
+    })
+};

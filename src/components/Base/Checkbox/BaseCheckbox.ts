@@ -6,4 +6,5 @@ export interface BaseCheckboxProps<T = unknown> {
     modelValue: boolean | T[];
     value?: T;
     color?: BaseCheckboxColor;
+    labelBefore?: boolean;
 }

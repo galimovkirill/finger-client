@@ -1,5 +1,9 @@
 <template>
-    <div class="fg-checkbox" :style="{ '--color-mode': `var(--fg-${color})` }">
+    <div
+        class="fg-checkbox"
+        :class="[{ 'fg-checkbox--label-before': labelBefore }]"
+        :style="{ '--color-mode': `var(--fg-${color})` }"
+    >
         <input
             :id="id.toString()"
             type="checkbox"
@@ -110,6 +114,7 @@ const onChange = (value: boolean) => {
         display: flex;
         align-items: center;
         cursor: pointer;
+        gap: 8px;
     }
 
     &__checkmark {
@@ -154,8 +159,12 @@ const onChange = (value: boolean) => {
 
     &__text {
         @extend .text-body-s;
+    }
 
-        margin-left: 8px;
+    &--label-before {
+        #{$self}__label {
+            flex-direction: row-reverse;
+        }
     }
 }
 </style>
