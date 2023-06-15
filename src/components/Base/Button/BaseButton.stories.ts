@@ -1,8 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 import BaseButton from './BaseButton.vue';
+import BaseButtonGroup from '@/components/Base/Button/BaseButtonGroup.vue';
+
 import SvgIcon from '@/components/SvgIcon.vue';
+
 import IconUser from '@/icons/IconUser.vue';
+
+import IconPlay from '@/icons/media/IconPlay.vue';
+import IconPause from '@/icons/media/IconPause.vue';
+import IconFastForward from '@/icons/media/IconFastForward.vue';
+import IconShuffle from '@/icons/media/IconShuffle.vue';
 
 import { BaseButtonColors, BaseButtonSizes } from '@/components/Base/Button/BaseButton';
 
@@ -217,6 +225,90 @@ export const Link: Story = {
                 <BaseButton to="https://google.com">
                     Go to Google
                 </BaseButton>
+            </div>
+        `
+    })
+};
+
+export const Group: Story = {
+    render: (args) => ({
+        components: {
+            BaseButton,
+            BaseButtonGroup,
+            SvgIcon,
+            IconPlay,
+            IconPause,
+            IconFastForward,
+            IconShuffle
+        },
+
+        setup() {
+            return { args };
+        },
+
+        template: `
+            <div class="sb-flex-col sb-justify-center sb-items-center sb-gap-4">
+                <BaseButtonGroup>
+                    <BaseButton type="flat">
+                        <SvgIcon>
+                            <IconPlay />    
+                        </SvgIcon>
+                    </BaseButton>
+                    
+                    <BaseButton type="flat">
+                        <SvgIcon>
+                            <IconPause />    
+                        </SvgIcon>
+                    </BaseButton>
+
+                    <BaseButton type="flat">
+                        <SvgIcon>
+                            <IconFastForward />    
+                        </SvgIcon>
+                    </BaseButton>
+
+                    <BaseButton type="flat">
+                        <SvgIcon>
+                            <IconShuffle />    
+                        </SvgIcon>
+                    </BaseButton>
+                </BaseButtonGroup>
+
+                <BaseButtonGroup>
+                    <BaseButton>
+                        One
+                    </BaseButton>
+                    
+                    <BaseButton>
+                        Two
+                    </BaseButton>
+
+                    <BaseButton>
+                        Three
+                    </BaseButton>
+
+                    <BaseButton>
+                        Four
+                    </BaseButton>
+                </BaseButtonGroup>
+
+                <BaseButtonGroup>
+                    <BaseButton type="border">
+                        One
+                    </BaseButton>
+                    
+                    <BaseButton type="border">
+                        Two
+                    </BaseButton>
+
+                    <BaseButton type="border">
+                        Three
+                    </BaseButton>
+
+                    <BaseButton type="border">
+                        Four
+                    </BaseButton>
+                </BaseButtonGroup>
             </div>
         `
     })
