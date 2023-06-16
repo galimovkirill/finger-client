@@ -5,7 +5,13 @@ import BaseLoader from '@/components/Base/Loader/BaseLoader.vue';
 const meta: Meta<typeof BaseLoader> = {
     component: BaseLoader,
     title: 'Loader',
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    decorators: [
+        () => ({
+            template:
+                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+        })
+    ]
 };
 
 export default meta;
@@ -21,12 +27,10 @@ export const Default: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseLoader />
-            </div>
+            <BaseLoader />
         `
     })
-}
+};
 
 export const Size: Story = {
     render: (args) => ({
@@ -37,9 +41,7 @@ export const Size: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseLoader size="40px" width="6px" />
-            </div>
+            <BaseLoader size="40px" width="6px" />
         `
     })
-}
+};

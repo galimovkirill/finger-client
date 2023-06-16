@@ -14,7 +14,13 @@ import IconTelegram from '@/icons/socials/IconTelegram.vue';
 const meta: Meta<typeof BaseAvatar> = {
     component: BaseAvatar,
     title: 'Avatar',
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    decorators: [
+        () => ({
+            template:
+                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+        })
+    ]
 };
 
 export default meta;
@@ -30,23 +36,21 @@ export const Default: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseAvatar>Den</BaseAvatar>
+            <BaseAvatar>Den</BaseAvatar>
 
-                <BaseAvatar>Michael</BaseAvatar>
+            <BaseAvatar>Michael</BaseAvatar>
 
-                <BaseAvatar>Michael Freeman</BaseAvatar>
-                
-                <BaseAvatar>
-                    <SvgIcon>
-                        <IconUser />
-                    </SvgIcon>
-                </BaseAvatar>
+            <BaseAvatar>Michael Freeman</BaseAvatar>
+            
+            <BaseAvatar>
+                <SvgIcon>
+                    <IconUser />
+                </SvgIcon>
+            </BaseAvatar>
 
-                <BaseAvatar>
-                    <img src="images/avatars/avatar-1.jpg" alt="" />
-                </BaseAvatar>
-            </div>
+            <BaseAvatar>
+                <img src="images/avatars/avatar-1.jpg" alt="" />
+            </BaseAvatar>
         `
     })
 };
@@ -60,23 +64,21 @@ export const Size: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseAvatar :size="30">Den</BaseAvatar>
+            <BaseAvatar :size="30">Den</BaseAvatar>
 
-                <BaseAvatar>Michael</BaseAvatar>
+            <BaseAvatar>Michael</BaseAvatar>
 
-                <BaseAvatar :size="50">Michael Freeman</BaseAvatar>
-                
-                <BaseAvatar :size="60">
-                    <SvgIcon :width="24">
-                        <IconUser />
-                    </SvgIcon>
-                </BaseAvatar>
+            <BaseAvatar :size="50">Michael Freeman</BaseAvatar>
+            
+            <BaseAvatar :size="60">
+                <SvgIcon :width="24">
+                    <IconUser />
+                </SvgIcon>
+            </BaseAvatar>
 
-                <BaseAvatar :size="70">
-                    <img src="images/avatars/avatar-1.jpg" alt="" />
-                </BaseAvatar>
-            </div>
+            <BaseAvatar :size="70">
+                <img src="images/avatars/avatar-1.jpg" alt="" />
+            </BaseAvatar>
         `
     })
 };
@@ -90,12 +92,10 @@ export const Color: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseAvatar title="default">Default</BaseAvatar>
-                <BaseAvatar v-for="color in BaseAvatarColors" :key="color" :color="color" :title="color">{{ color }}</BaseAvatar>
-                <BaseAvatar title="HEX" color="#42f5b0">HEX</BaseAvatar>
-                <BaseAvatar title="RGB" color="rgb(188, 66, 245)">RGB</BaseAvatar>
-            </div>
+            <BaseAvatar title="default">Default</BaseAvatar>
+            <BaseAvatar v-for="color in BaseAvatarColors" :key="color" :color="color" :title="color">{{ color }}</BaseAvatar>
+            <BaseAvatar title="HEX" color="#42f5b0">HEX</BaseAvatar>
+            <BaseAvatar title="RGB" color="rgb(188, 66, 245)">RGB</BaseAvatar>
         `
     })
 };
@@ -119,13 +119,11 @@ export const Icon: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseAvatar v-for="icon in icons" :key="icon">
-                    <SvgIcon>
-                        <Component :is="icon" />
-                    </SvgIcon>
-                </BaseAvatar>
-            </div>
+            <BaseAvatar v-for="icon in icons" :key="icon">
+                <SvgIcon>
+                    <Component :is="icon" />
+                </SvgIcon>
+            </BaseAvatar>
         `
     })
 };
@@ -139,19 +137,24 @@ export const Group: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-flex-col sb-items-center sb-justify-center sb-gap-2">
-                <BaseAvatarGroup>
-                    <BaseAvatar v-for="avatar in 10" :key="avatar">
-                        <img :src="'images/avatars/avatar-' + avatar + '.jpg'" alt="" />
-                    </BaseAvatar>
-                </BaseAvatarGroup>
+            <BaseAvatarGroup>
+                <BaseAvatar v-for="avatar in 10" :key="avatar">
+                    <img :src="'images/avatars/avatar-' + avatar + '.jpg'" alt="" />
+                </BaseAvatar>
+            </BaseAvatarGroup>
 
-                <BaseAvatarGroup :max="7">
-                    <BaseAvatar v-for="avatar in 10" :key="avatar">
-                        <img :src="'images/avatars/avatar-' + avatar + '.jpg'" alt="" />
-                    </BaseAvatar>
-                </BaseAvatarGroup>
-            </div>
+            <BaseAvatarGroup :max="7">
+                <BaseAvatar v-for="avatar in 10" :key="avatar">
+                    <img :src="'images/avatars/avatar-' + avatar + '.jpg'" alt="" />
+                </BaseAvatar>
+            </BaseAvatarGroup>
         `
-    })
+    }),
+
+    decorators: [
+        () => ({
+            template:
+                '<div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+        })
+    ]
 };

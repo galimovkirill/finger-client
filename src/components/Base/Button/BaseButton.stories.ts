@@ -19,7 +19,13 @@ import { capitalize } from 'vue';
 const meta: Meta<typeof BaseButton> = {
     component: BaseButton,
     title: 'Button',
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    decorators: [
+        () => ({
+            template:
+                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+        })
+    ]
 };
 
 export default meta;
@@ -35,11 +41,9 @@ export const DefaultType: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton active>Active</BaseButton>
-                <BaseButton>Default</BaseButton>
-                <BaseButton disabled>Disabled</BaseButton>
-            </div>
+            <BaseButton active>Active</BaseButton>
+            <BaseButton>Default</BaseButton>
+            <BaseButton disabled>Disabled</BaseButton>
         `
     })
 };
@@ -57,11 +61,9 @@ export const FlatType: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton v-bind="args" active>Active</BaseButton>
-                <BaseButton v-bind="args">Default</BaseButton>
-                <BaseButton v-bind="args" disabled>Disabled</BaseButton>
-            </div>
+            <BaseButton v-bind="args" active>Active</BaseButton>
+            <BaseButton v-bind="args">Default</BaseButton>
+            <BaseButton v-bind="args" disabled>Disabled</BaseButton>
         `
     })
 };
@@ -79,11 +81,9 @@ export const BorderType: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton v-bind="args" active>Active</BaseButton>
-                <BaseButton v-bind="args">Default</BaseButton>
-                <BaseButton v-bind="args" disabled>Disabled</BaseButton>
-            </div>
+            <BaseButton v-bind="args" active>Active</BaseButton>
+            <BaseButton v-bind="args">Default</BaseButton>
+            <BaseButton v-bind="args" disabled>Disabled</BaseButton>
         `
     })
 };
@@ -97,9 +97,7 @@ export const Color: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton v-for="color in BaseButtonColors" :key="color" :color="color">{{ capitalize(color) }}</BaseButton>
-            </div>
+            <BaseButton v-for="color in BaseButtonColors" :key="color" :color="color">{{ capitalize(color) }}</BaseButton>
         `
     })
 };
@@ -113,9 +111,7 @@ export const Size: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton v-for="size in BaseButtonSizes" :key="size" :size="size">{{ capitalize(size) }}</BaseButton>
-            </div>
+            <BaseButton v-for="size in BaseButtonSizes" :key="size" :size="size">{{ capitalize(size) }}</BaseButton>
         `
     })
 };
@@ -129,9 +125,7 @@ export const Loading: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton v-for="size in BaseButtonSizes" :key="size" :size="size" loading>Loading</BaseButton>
-            </div>
+            <BaseButton v-for="size in BaseButtonSizes" :key="size" :size="size" loading>Loading</BaseButton>
         `
     })
 };
@@ -145,33 +139,31 @@ export const Icon: Story = {
         },
 
         template: `
-            <div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton>
-                    <template #prepend>
-                        <SvgIcon>
-                            <IconUser />    
-                        </SvgIcon>
-                    </template>
-                    
-                    Prepend icon
-                </BaseButton>
-
-                <BaseButton>
-                    <template #append>
-                        <SvgIcon>
-                            <IconUser />    
-                        </SvgIcon>
-                    </template>
-                    
-                    Append icon
-                </BaseButton>
-
-                <BaseButton>
+            <BaseButton>
+                <template #prepend>
                     <SvgIcon>
                         <IconUser />    
                     </SvgIcon>
-                </BaseButton>
-            </div>
+                </template>
+                
+                Prepend icon
+            </BaseButton>
+
+            <BaseButton>
+                <template #append>
+                    <SvgIcon>
+                        <IconUser />    
+                    </SvgIcon>
+                </template>
+                
+                Append icon
+            </BaseButton>
+
+            <BaseButton>
+                <SvgIcon>
+                    <IconUser />    
+                </SvgIcon>
+            </BaseButton>
         `
     })
 };
@@ -185,11 +177,9 @@ export const Expanded: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-justify-center">
-                <BaseButton expanded>
-                    Expanded button
-                </BaseButton>
-            </div>
+            <BaseButton expanded>
+                Expanded button
+            </BaseButton>
         `
     })
 };
@@ -203,11 +193,9 @@ export const Uppercase: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-justify-center">
-                <BaseButton uppercase>
-                    Button
-                </BaseButton>
-            </div>
+            <BaseButton uppercase>
+                Button
+            </BaseButton>
         `
     })
 };
@@ -221,11 +209,9 @@ export const Link: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-justify-center">
-                <BaseButton to="https://google.com">
-                    Go to Google
-                </BaseButton>
-            </div>
+            <BaseButton to="https://google.com">
+                Go to Google
+            </BaseButton>
         `
     })
 };
@@ -247,69 +233,67 @@ export const Group: Story = {
         },
 
         template: `
-            <div class="sb-flex-col sb-justify-center sb-items-center sb-gap-4">
-                <BaseButtonGroup>
-                    <BaseButton type="flat">
-                        <SvgIcon>
-                            <IconPlay />    
-                        </SvgIcon>
-                    </BaseButton>
-                    
-                    <BaseButton type="flat">
-                        <SvgIcon>
-                            <IconPause />    
-                        </SvgIcon>
-                    </BaseButton>
+            <BaseButtonGroup>
+                <BaseButton type="flat">
+                    <SvgIcon>
+                        <IconPlay />    
+                    </SvgIcon>
+                </BaseButton>
+                
+                <BaseButton type="flat">
+                    <SvgIcon>
+                        <IconPause />    
+                    </SvgIcon>
+                </BaseButton>
 
-                    <BaseButton type="flat">
-                        <SvgIcon>
-                            <IconFastForward />    
-                        </SvgIcon>
-                    </BaseButton>
+                <BaseButton type="flat">
+                    <SvgIcon>
+                        <IconFastForward />    
+                    </SvgIcon>
+                </BaseButton>
 
-                    <BaseButton type="flat">
-                        <SvgIcon>
-                            <IconShuffle />    
-                        </SvgIcon>
-                    </BaseButton>
-                </BaseButtonGroup>
+                <BaseButton type="flat">
+                    <SvgIcon>
+                        <IconShuffle />    
+                    </SvgIcon>
+                </BaseButton>
+            </BaseButtonGroup>
 
-                <BaseButtonGroup>
-                    <BaseButton>
-                        One
-                    </BaseButton>
-                    
-                    <BaseButton>
-                        Two
-                    </BaseButton>
+            <BaseButtonGroup>
+                <BaseButton>
+                    One
+                </BaseButton>
+                
+                <BaseButton>
+                    Two
+                </BaseButton>
 
-                    <BaseButton>
-                        Three
-                    </BaseButton>
+                <BaseButton>
+                    Three
+                </BaseButton>
 
-                    <BaseButton>
-                        Four
-                    </BaseButton>
-                </BaseButtonGroup>
+                <BaseButton>
+                    Four
+                </BaseButton>
+            </BaseButtonGroup>
 
-                <BaseButtonGroup>
-                    <BaseButton type="border">
-                        One
-                    </BaseButton>
-                    
-                    <BaseButton type="border">
-                        Two
-                    </BaseButton>
+            <BaseButtonGroup>
+                <BaseButton type="border">
+                    One
+                </BaseButton>
+                
+                <BaseButton type="border">
+                    Two
+                </BaseButton>
 
-                    <BaseButton type="border">
-                        Three
-                    </BaseButton>
+                <BaseButton type="border">
+                    Three
+                </BaseButton>
 
-                    <BaseButton type="border">
-                        Four
-                    </BaseButton>
-                </BaseButtonGroup>
-            </div>
+                <BaseButton type="border">
+                    Four
+                </BaseButton>
+            </BaseButtonGroup>
         `
     })
 };

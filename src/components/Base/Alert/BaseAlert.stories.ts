@@ -12,7 +12,13 @@ import './BaseAlert.stories.css';
 const meta: Meta<typeof BaseAlert> = {
     component: BaseAlert,
     title: 'Alert',
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    decorators: [
+        () => ({
+            template:
+                '<div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+        })
+    ]
 };
 
 export default meta;
@@ -33,13 +39,11 @@ export const Default: Story = {
         },
 
         template: `
-            <div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2">
-                <BaseAlert class="sb-alert">
-                    <template #heading>{{ alertHeading }}</template>
+            <BaseAlert class="sb-alert">
+                <template #heading>{{ alertHeading }}</template>
 
-                    <p>{{ alertText }}</p>
-                </BaseAlert>
-            </div>
+                <p>{{ alertText }}</p>
+            </BaseAlert>
         `
     })
 };
@@ -53,13 +57,11 @@ export const Color: Story = {
         },
 
         template: `
-            <div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2">
-                <BaseAlert v-for="color in BaseAlertColors" :key="color" :color="color" class="sb-alert">
-                    <template #heading>{{ alertHeading }}</template>
+            <BaseAlert v-for="color in BaseAlertColors" :key="color" :color="color" class="sb-alert">
+                <template #heading>{{ alertHeading }}</template>
 
-                    <p>{{ alertText }}</p>
-                </BaseAlert>
-            </div>
+                <p>{{ alertText }}</p>
+            </BaseAlert>
         `
     })
 };
@@ -73,19 +75,17 @@ export const Icon: Story = {
         },
 
         template: `
-            <div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2">
-                <BaseAlert class="sb-alert">
-                    <template #prepend>
-                        <SvgIcon :width="24">
-                            <IconTravel />
-                        </SvgIcon>
-                    </template>
+            <BaseAlert class="sb-alert">
+                <template #prepend>
+                    <SvgIcon :width="24">
+                        <IconTravel />
+                    </SvgIcon>
+                </template>
 
-                    <template #heading>{{ alertHeading }}</template>
+                <template #heading>{{ alertHeading }}</template>
 
-                    <p>{{ alertText }}</p>
-                </BaseAlert>
-            </div>
+                <p>{{ alertText }}</p>
+            </BaseAlert>
         `
     })
 };
@@ -103,13 +103,11 @@ export const CloseButton: Story = {
         },
 
         template: `
-            <div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2">
-                <BaseAlert class="sb-alert" close-button @close-button-click="onCloseButtonClick">
-                    <template #heading>{{ alertHeading }}</template>
+            <BaseAlert class="sb-alert" close-button @close-button-click="onCloseButtonClick">
+                <template #heading>{{ alertHeading }}</template>
 
-                    <p>{{ alertText }}</p>
-                </BaseAlert>
-            </div>
+                <p>{{ alertText }}</p>
+            </BaseAlert>
         `
     })
 };
@@ -123,20 +121,18 @@ export const Footer: Story = {
         },
 
         template: `
-            <div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2">
-                <BaseAlert class="sb-alert">
-                    <template #heading>{{ alertHeading }}</template>
+            <BaseAlert class="sb-alert">
+                <template #heading>{{ alertHeading }}</template>
 
-                    <p>{{ alertText }}</p>
+                <p>{{ alertText }}</p>
 
-                    <template #footer>
-                        <div class="sb-flex sb-justify-end sb-gap-2">
-                            <BaseButton type="flat">Close</BaseButton>
-                            <BaseButton>Learn more</BaseButton>
-                        </div>
-                    </template>
-                </BaseAlert>
-            </div>
+                <template #footer>
+                    <div class="sb-flex sb-justify-end sb-gap-2">
+                        <BaseButton type="flat">Close</BaseButton>
+                        <BaseButton>Learn more</BaseButton>
+                    </div>
+                </template>
+            </BaseAlert>
         `
     })
 };

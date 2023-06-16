@@ -8,7 +8,13 @@ import { ref } from 'vue';
 const meta: Meta<typeof BaseModal> = {
     component: BaseModal,
     title: 'Modal',
-    tags: ['autodocs']
+    tags: ['autodocs'],
+    decorators: [
+        () => ({
+            template:
+                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+        })
+    ]
 };
 
 export default meta;
@@ -26,18 +32,16 @@ export const Default: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton @click="isModalShown = true">Open modal</BaseButton>
+            <BaseButton @click="isModalShown = true">Open modal</BaseButton>
 
-                <Teleport to="body">
-                    <BaseModal
-                        v-if="isModalShown"
-                        @close-modal="isModalShown = false"
-                    >
-                        <BaseModalDemoContent />
-                    </BaseModal>
-                </Teleport>
-            </div>
+            <Teleport to="body">
+                <BaseModal
+                    v-if="isModalShown"
+                    @close-modal="isModalShown = false"
+                >
+                    <BaseModalDemoContent />
+                </BaseModal>
+            </Teleport>
         `
     })
 };
@@ -53,19 +57,17 @@ export const MaxWidth: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton @click="isModalShown = true">Open modal</BaseButton>
+            <BaseButton @click="isModalShown = true">Open modal</BaseButton>
 
-                <Teleport to="body">
-                    <BaseModal
-                        v-if="isModalShown"
-                        :max-width="1080"
-                        @close-modal="isModalShown = false"
-                    >
-                        <BaseModalDemoContent />
-                    </BaseModal>
-                </Teleport>
-            </div>
+            <Teleport to="body">
+                <BaseModal
+                    v-if="isModalShown"
+                    :max-width="1080"
+                    @close-modal="isModalShown = false"
+                >
+                    <BaseModalDemoContent />
+                </BaseModal>
+            </Teleport>
         `
     })
 };
@@ -81,28 +83,26 @@ export const Padding: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton @click="isModalShown = true">Open modal</BaseButton>
+            <BaseButton @click="isModalShown = true">Open modal</BaseButton>
 
-                <Teleport to="body">
-                    <BaseModal
-                        v-if="isModalShown"
-                        :max-width="320"
-                        :padding="24"
-                        @close-modal="isModalShown = false"
-                    >
-                        <template #header>
-                            <h3>Hello world!</h3>
-                        </template>
+            <Teleport to="body">
+                <BaseModal
+                    v-if="isModalShown"
+                    :max-width="320"
+                    :padding="24"
+                    @close-modal="isModalShown = false"
+                >
+                    <template #header>
+                        <h3>Hello world!</h3>
+                    </template>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
-                        <template #footer>
-                            <BaseButton expanded>Say hello</BaseButton>
-                        </template>
-                    </BaseModal>
-                </Teleport>
-            </div>
+                    <template #footer>
+                        <BaseButton expanded>Say hello</BaseButton>
+                    </template>
+                </BaseModal>
+            </Teleport>
         `
     })
 };
@@ -118,19 +118,17 @@ export const HideCloseButton: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton @click="isModalShown = true">Open modal</BaseButton>
+            <BaseButton @click="isModalShown = true">Open modal</BaseButton>
 
-                <Teleport to="body">
-                    <BaseModal
-                        v-if="isModalShown"
-                        hide-close-button
-                        @close-modal="isModalShown = false"
-                    >
-                        <BaseModalDemoContent />
-                    </BaseModal>
-                </Teleport>
-            </div>
+            <Teleport to="body">
+                <BaseModal
+                    v-if="isModalShown"
+                    hide-close-button
+                    @close-modal="isModalShown = false"
+                >
+                    <BaseModalDemoContent />
+                </BaseModal>
+            </Teleport>
         `
     })
 };
@@ -146,19 +144,17 @@ export const PreventOutsideClick: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton @click="isModalShown = true">Open modal</BaseButton>
+            <BaseButton @click="isModalShown = true">Open modal</BaseButton>
 
-                <Teleport to="body">
-                    <BaseModal
-                        v-if="isModalShown"
-                        prevent-outside-click
-                        @close-modal="isModalShown = false"
-                    >
-                        <BaseModalDemoContent />
-                    </BaseModal>
-                </Teleport>
-            </div>
+            <Teleport to="body">
+                <BaseModal
+                    v-if="isModalShown"
+                    prevent-outside-click
+                    @close-modal="isModalShown = false"
+                >
+                    <BaseModalDemoContent />
+                </BaseModal>
+            </Teleport>
         `
     })
 };
@@ -174,19 +170,17 @@ export const PreventEsc: Story = {
         },
 
         template: `
-            <div class="sb-flex sb-items-center sb-justify-center sb-gap-2">
-                <BaseButton @click="isModalShown = true">Open modal</BaseButton>
+            <BaseButton @click="isModalShown = true">Open modal</BaseButton>
 
-                <Teleport to="body">
-                    <BaseModal
-                        v-if="isModalShown"
-                        prevent-esc
-                        @close-modal="isModalShown = false"
-                    >
-                        <BaseModalDemoContent />
-                    </BaseModal>
-                </Teleport>
-            </div>
+            <Teleport to="body">
+                <BaseModal
+                    v-if="isModalShown"
+                    prevent-esc
+                    @close-modal="isModalShown = false"
+                >
+                    <BaseModalDemoContent />
+                </BaseModal>
+            </Teleport>
         `
     })
 };
