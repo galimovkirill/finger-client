@@ -6,7 +6,7 @@ import { ref } from 'vue';
 
 const meta: Meta<typeof BaseCheckbox> = {
     component: BaseCheckbox,
-    title: 'Checkbox',
+    title: 'Components/Checkbox',
     tags: ['autodocs'],
     decorators: [
         () => ({

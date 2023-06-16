@@ -4,7 +4,7 @@ import BaseLoader from '@/components/Base/Loader/BaseLoader.vue';
 
 const meta: Meta<typeof BaseLoader> = {
     component: BaseLoader,
-    title: 'Loader',
+    title: 'Components/Loader',
     tags: ['autodocs'],
     decorators: [
         () => ({

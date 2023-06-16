@@ -11,7 +11,7 @@ import { reactive, ref } from 'vue';
 
 const meta: Meta<typeof BaseInput> = {
     component: BaseInput,
-    title: 'Input',
+    title: 'Components/Input',
     tags: ['autodocs'],
     decorators: [
         () => ({

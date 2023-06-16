@@ -7,7 +7,7 @@ import { ref } from 'vue';
 
 const meta: Meta<typeof BaseModal> = {
     component: BaseModal,
-    title: 'Modal',
+    title: 'Components/Modal',
     tags: ['autodocs'],
     decorators: [
         () => ({

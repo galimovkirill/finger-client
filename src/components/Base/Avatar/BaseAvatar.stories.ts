@@ -13,7 +13,7 @@ import IconTelegram from '@/icons/socials/IconTelegram.vue';
 
 const meta: Meta<typeof BaseAvatar> = {
     component: BaseAvatar,
-    title: 'Avatar',
+    title: 'Components/Avatar',
     tags: ['autodocs'],
     decorators: [
         () => ({

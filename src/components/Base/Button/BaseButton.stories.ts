@@ -18,7 +18,7 @@ import { capitalize } from 'vue';
 
 const meta: Meta<typeof BaseButton> = {
     component: BaseButton,
-    title: 'Button',
+    title: 'Components/Button',
     tags: ['autodocs'],
     decorators: [
         () => ({

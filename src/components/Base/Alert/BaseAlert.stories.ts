@@ -10,7 +10,7 @@ import { BaseAlertColors } from '@/components/Base/Alert/BaseAlert';
 
 const meta: Meta<typeof BaseAlert> = {
     component: BaseAlert,
-    title: 'Alert',
+    title: 'Components/Alert',
     tags: ['autodocs'],
     decorators: [
         () => ({
