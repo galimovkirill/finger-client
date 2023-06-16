@@ -7,7 +7,6 @@ import BaseButton from '@/components/Base/Button/BaseButton.vue';
 
 import BaseAlert from '@/components/Base/Alert/BaseAlert.vue';
 import { BaseAlertColors } from '@/components/Base/Alert/BaseAlert';
-import './BaseAlert.stories.css';
 
 const meta: Meta<typeof BaseAlert> = {
     component: BaseAlert,
@@ -16,7 +15,7 @@ const meta: Meta<typeof BaseAlert> = {
     decorators: [
         () => ({
             template:
-                '<div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+                '<div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2 sb-mx-auto" style="max-width: 700px;"><story /></div>'
         })
     ]
 };
@@ -39,7 +38,7 @@ export const Default: Story = {
         },
 
         template: `
-            <BaseAlert class="sb-alert">
+            <BaseAlert>
                 <template #heading>{{ alertHeading }}</template>
 
                 <p>{{ alertText }}</p>
@@ -57,7 +56,7 @@ export const Color: Story = {
         },
 
         template: `
-            <BaseAlert v-for="color in BaseAlertColors" :key="color" :color="color" class="sb-alert">
+            <BaseAlert v-for="color in BaseAlertColors" :key="color" :color="color">
                 <template #heading>{{ alertHeading }}</template>
 
                 <p>{{ alertText }}</p>
@@ -75,7 +74,7 @@ export const Icon: Story = {
         },
 
         template: `
-            <BaseAlert class="sb-alert">
+            <BaseAlert>
                 <template #prepend>
                     <SvgIcon :width="24">
                         <IconTravel />
@@ -103,7 +102,7 @@ export const CloseButton: Story = {
         },
 
         template: `
-            <BaseAlert class="sb-alert" close-button @close-button-click="onCloseButtonClick">
+            <BaseAlert close-button @close-button-click="onCloseButtonClick">
                 <template #heading>{{ alertHeading }}</template>
 
                 <p>{{ alertText }}</p>
@@ -121,7 +120,7 @@ export const Footer: Story = {
         },
 
         template: `
-            <BaseAlert class="sb-alert">
+            <BaseAlert>
                 <template #heading>{{ alertHeading }}</template>
 
                 <p>{{ alertText }}</p>
