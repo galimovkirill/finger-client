@@ -1,5 +1,5 @@
 import '../src/assets/styles/global.scss';
-import '../src/assets/styles/storybook.scss';
+import './storybook.scss';
 
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {
