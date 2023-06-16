@@ -66,7 +66,7 @@ withDefaults(defineProps<BaseAlertProps>(), {
     }
 
     &__heading {
-        @extend .text-heading-6;
+        @extend .text-heading-xs;
 
         margin-bottom: 16px;
     }

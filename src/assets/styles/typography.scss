@@ -5,27 +5,27 @@
 
 .text {
     &-heading {
-        &-1 {
+        &-xxl {
             @include getHeadingStyles(56px);
         }
 
-        &-2 {
+        &-xl {
             @include getHeadingStyles(48px);
         }
 
-        &-3 {
+        &-l {
             @include getHeadingStyles(40px);
         }
 
-        &-4 {
+        &-m {
             @include getHeadingStyles(32px);
         }
 
-        &-5 {
+        &-s {
             @include getHeadingStyles(24px);
         }
 
-        &-6 {
+        &-xs {
             @include getHeadingStyles(18px);
         }
     }

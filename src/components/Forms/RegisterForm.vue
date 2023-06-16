@@ -1,6 +1,6 @@
 <template>
     <form class="register-form" @submit.prevent="submitRegister">
-        <h1 class="text-heading-5 register-form__heading">Регистрация</h1>
+        <h1 class="text-heading-s register-form__heading">Регистрация</h1>
 
         <div class="register-fields">
             <BaseInput v-model="login" placeholder="Электронный адрес" type="email">

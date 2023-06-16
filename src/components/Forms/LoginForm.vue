@@ -1,6 +1,6 @@
 <template>
     <form class="login-form" @submit.prevent="submitLogin">
-        <h1 class="text-heading-5 login-form__heading">Вход в аккаунта</h1>
+        <h1 class="text-heading-s login-form__heading">Вход в аккаунта</h1>
 
         <div class="login-fields">
             <BaseInput v-model="login" placeholder="Электронный адрес" type="email">

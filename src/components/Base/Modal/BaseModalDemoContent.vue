@@ -1,6 +1,6 @@
 <template>
     <div class="login-form">
-        <h1 class="text-heading-5 login-form__heading">Create an account</h1>
+        <h1 class="text-heading-s login-form__heading">Create an account</h1>
 
         <div class="login-fields">
             <BaseInput v-model="login" placeholder="Email" type="email">
