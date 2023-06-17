@@ -6,7 +6,7 @@ const router = createRouter({
         {
             path: '/',
             name: 'Home',
-            component: () => import('@/views/LoginView.vue')
+            component: () => import('@/views/HomeView.vue')
         },
         {
             path: '/login',
@@ -23,7 +23,7 @@ const router = createRouter({
                 layout: 'centered'
             },
             component: () => import('@/views/RegisterView.vue')
-        },
+        }
     ]
 });
 
