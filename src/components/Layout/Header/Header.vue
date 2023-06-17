@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <div class="header__wrapper">
+        <div class="header__wrapper container">
             <a href="#" class="header__logo">Finger App</a>
 
             <HeaderMenu />
@@ -30,10 +30,6 @@ import HeaderMenu from '@/components/Layout/Header/HeaderMenu.vue';
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        width: 100%;
-        padding-left: 32px;
-        padding-right: 32px;
     }
 }
 </style>
