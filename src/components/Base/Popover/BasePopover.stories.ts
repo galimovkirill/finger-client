@@ -142,8 +142,7 @@ export const Alignment: Story = {
         components: { BasePopover, BaseButton, BaseButtonGroup, BasePopoverDemoContent },
 
         setup() {
-            // @ts-ignore
-            const activeAlignment: BasePopoverProps['alignment'] = ref('bottom');
+            const activeAlignment = ref<BasePopoverProps['alignment']>('bottom');
 
             return { args, activeAlignment, BasePopoverAlignments };
         },
@@ -184,8 +183,7 @@ export const Trigger: Story = {
         setup() {
             // @ts-ignore
             const triggers: BasePopoverProps['trigger'] = ['click', 'hover'];
-            // @ts-ignore
-            const activeTrigger: typeof triggers = ref('click');
+            const activeTrigger = ref<typeof triggers>('click');
 
             return { args, activeTrigger, triggers, BasePopoverAlignments };
         },
