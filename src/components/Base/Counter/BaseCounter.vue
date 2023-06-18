@@ -1,5 +1,5 @@
 <template>
-    <div class="fg-counter" :style="{ '--counter-value': value }"></div>
+    <span class="fg-counter" :style="{ '--counter-value': value }"></span>
 </template>
 
 <script lang="ts" setup>
@@ -18,7 +18,7 @@ defineProps<Props>();
 }
 
 .fg-counter {
-    animation: counter 1s alternate ease;
+    animation: counter 0.5s alternate ease;
     animation-fill-mode: forwards;
     counter-reset: num var(--num);
 }

@@ -5,7 +5,7 @@
 
             <div class="account-card__body">
                 <span class="account-card__title">{{ data.title }}</span>
-                <span class="account-card__balance">{{ data.balance }}</span>
+                <BaseCounter :value="data.balance" class="account-card__balance" />
             </div>
         </div>
     </div>
@@ -13,6 +13,7 @@
 
 <script lang="ts" setup>
 import BaseAvatar from '@/components/Base/Avatar/BaseAvatar.vue';
+import BaseCounter from '@/components/Base/Counter/BaseCounter.vue';
 
 export interface IAccountCard {
     title: string;
