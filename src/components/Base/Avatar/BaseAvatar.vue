@@ -83,6 +83,7 @@ export default {
 <style lang="scss">
 @import '@/assets/styles/mixin.scss';
 
+// TODO: refactor color modes with dynamic css var
 .fg-avatar {
     display: flex;
     align-items: center;
