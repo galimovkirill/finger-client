@@ -1,0 +1,89 @@
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { capitalize } from 'vue';
+
+import BaseChip from '@/components/Base/Chip/BaseChip.vue';
+import { BaseChipTypes, BaseChipColors, BaseChipSizes } from '@/components/Base/Chip/BaseChip';
+
+const meta: Meta<typeof BaseChip> = {
+    component: BaseChip,
+    title: 'Components/Chip',
+    tags: ['autodocs'],
+    decorators: [
+        () => ({
+            template:
+                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2"><story /></div>'
+        })
+    ]
+};
+
+export default meta;
+
+type Story = StoryObj<typeof BaseChip>;
+
+export const Types: Story = {
+    render: (args) => ({
+        components: { BaseChip },
+
+        setup() {
+            return { args, BaseChipTypes, capitalize };
+        },
+
+        template: `
+            <BaseChip>Default</BaseChip>
+            <BaseChip v-for="type in BaseChipTypes" :key="type" :type="type">{{ capitalize(type) }}</BaseChip>
+        `
+    })
+};
+
+export const Closable: Story = {
+    render: (args) => ({
+        components: { BaseChip },
+
+        setup() {
+            const onClose = () => {
+                alert('Close button click')
+            }
+
+            return { args, BaseChipTypes, capitalize, onClose };
+        },
+
+        template: `
+            <BaseChip closable @close="onClose">Default</BaseChip>
+            <BaseChip v-for="type in BaseChipTypes" :key="type" :type="type" closable @close="onClose">
+                {{ capitalize(type) }}
+            </BaseChip>
+        `
+    })
+};
+
+export const Color: Story = {
+    render: (args) => ({
+        components: { BaseChip },
+
+        setup() {
+            return { args, BaseChipColors, capitalize };
+        },
+
+        template: `
+            <BaseChip v-for="color in BaseChipColors" :key="color" :color="color">
+                {{ capitalize(color) }}
+            </BaseChip>
+        `
+    })
+};
+
+export const Size: Story = {
+    render: (args) => ({
+        components: { BaseChip },
+
+        setup() {
+            return { args, BaseChipSizes, capitalize };
+        },
+
+        template: `
+            <BaseChip v-for="size in BaseChipSizes" :key="size" :size="size">
+                {{ size }} size
+            </BaseChip>
+        `
+    })
+};
