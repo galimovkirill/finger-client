@@ -41,17 +41,28 @@ export const Closable: Story = {
 
         setup() {
             const onClose = () => {
-                alert('Close button click')
-            }
+                alert('Close button click');
+            };
 
             return { args, BaseChipTypes, capitalize, onClose };
         },
 
         template: `
-            <BaseChip closable @close="onClose">Default</BaseChip>
-            <BaseChip v-for="type in BaseChipTypes" :key="type" :type="type" closable @close="onClose">
-                {{ capitalize(type) }}
-            </BaseChip>
+            <div class="sb-flex-col sb-gap-2">
+                <div class="sb-flex sb-gap-2">
+                    <BaseChip closable @close="onClose">Default</BaseChip>
+                    <BaseChip v-for="type in BaseChipTypes" :key="type" :type="type" closable @close="onClose">
+                        {{ capitalize(type) }}
+                    </BaseChip>
+                </div>
+
+                <div class="sb-flex sb-gap-2">
+                    <BaseChip closable close-icon="trash" @close="onClose">Default</BaseChip>
+                    <BaseChip v-for="type in BaseChipTypes" :key="type" :type="type" close-icon="trash" closable @close="onClose">
+                        {{ capitalize(type) }}
+                    </BaseChip>
+                </div>
+            </div>
         `
     })
 };

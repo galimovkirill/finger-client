@@ -15,7 +15,7 @@
                 :width="16"
                 @click.stop="$emit('close')"
             >
-                <IconClose />
+                <Component :is="closeIconComponent" />
             </SvgIcon>
         </div>
     </div>
@@ -24,14 +24,28 @@
 <script lang="ts" setup>
 import type { BaseChipProps } from '@/components/Base/Chip/BaseChip';
 import SvgIcon from '@/components/SvgIcon.vue';
-import IconClose from '@/icons/IconClose.vue';
+
+import IconCloseFilled from '@/icons/IconCloseFilled.vue';
+import IconTrash from '@/icons/IconTrash.vue';
+import { computed } from 'vue';
 
 /**
  * TODO: Add icons to component
  */
 
-withDefaults(defineProps<BaseChipProps>(), {
-    size: 'medium'
+const props = withDefaults(defineProps<BaseChipProps>(), {
+    size: 'medium',
+    closeIcon: 'close'
+});
+
+const closeIconComponent = computed(() => {
+    switch (props.closeIcon) {
+        case 'trash':
+            return IconTrash;
+        case 'close':
+        default:
+            return IconCloseFilled;
+    }
 });
 
 defineEmits<{
@@ -72,10 +86,7 @@ defineEmits<{
     }
 
     &__close {
-        background-color: currentColor;
-        border-radius: 100%;
-        padding: 2px;
-        fill: getColor('base-01');
+        fill: currentColor;
         margin-left: 6px;
         cursor: pointer;
     }
