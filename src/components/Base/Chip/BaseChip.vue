@@ -7,7 +7,15 @@
         <div class="fg-chip__overlay"></div>
 
         <div class="fg-chip__wrapper">
+            <div v-if="$slots.prepend" class="fg-chip__prepend">
+                <slot name="prepend"></slot>
+            </div>
+
             <slot></slot>
+
+            <div v-if="$slots.append" class="fg-chip__append">
+                <slot name="append"></slot>
+            </div>
 
             <SvgIcon
                 v-if="closable"
@@ -83,6 +91,19 @@ defineEmits<{
         padding-right: var(--fg-chip-padding);
         display: flex;
         align-items: center;
+    }
+
+    &__prepend,
+    &__append {
+        fill: currentColor;
+    }
+
+    &__prepend {
+        margin-right: 6px;
+    }
+
+    &__append {
+        margin-left: 6px;
     }
 
     &__close {

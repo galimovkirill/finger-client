@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { capitalize } from 'vue';
 
+import SvgIcon from '@/components/SvgIcon.vue';
+import IconEye from '@/icons/IconEye.vue';
+
 import BaseChip from '@/components/Base/Chip/BaseChip.vue';
 import { BaseChipTypes, BaseChipColors, BaseChipSizes } from '@/components/Base/Chip/BaseChip';
 
@@ -94,6 +97,38 @@ export const Size: Story = {
         template: `
             <BaseChip v-for="size in BaseChipSizes" :key="size" :size="size">
                 {{ size }} size
+            </BaseChip>
+        `
+    })
+};
+
+export const Icon: Story = {
+    render: (args) => ({
+        components: { BaseChip, SvgIcon, IconEye },
+
+        setup() {
+            return { args, BaseChipSizes, capitalize };
+        },
+
+        template: `
+            <BaseChip>
+                <template #prepend>
+                    <SvgIcon>
+                        <IconEye />
+                    </SvgIcon>
+                </template>
+
+                Prepend icon
+            </BaseChip>
+
+            <BaseChip color="primary">
+                <template #append>
+                    <SvgIcon>
+                        <IconEye />
+                    </SvgIcon>
+                </template>
+
+                Append icon
             </BaseChip>
         `
     })
