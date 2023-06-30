@@ -1,11 +1,14 @@
 {
-    "name": "@finger/ui",
-    "version": "0.0.0",
-    "private": true,
+    "name": "@galimovdev/fg-ui",
+    "version": "0.0.1",
+    "private": false,
     "type": "module",
     "files": [
         "dist"
     ],
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "build": "run-p type-check build-only",
         "preview": "vite preview",
