@@ -1,13 +1,31 @@
 {
     "name": "@galimovdev/fg-ui",
-    "version": "0.0.1",
     "private": false,
+    "version": "0.0.8",
     "type": "module",
+    "author": {
+        "name": "Kirill Galimov",
+        "email": "galimovdev@gmail.com"
+    },
     "files": [
         "dist"
     ],
+    "main": "./dist/finger-ui.umd.cjs",
+    "module": "./dist/finger-ui.js",
     "publishConfig": {
         "access": "public"
+    },
+    "types": "./dist/main.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/main.d.ts",
+            "import": "./dist/finger-ui.js",
+            "require": "./dist/finger-ui.umd.cjs"
+        },
+        "./css": {
+            "import": "./dist/main.css",
+            "require": "./dist/main.css"
+        }
     },
     "scripts": {
         "build": "run-p type-check build-only",
