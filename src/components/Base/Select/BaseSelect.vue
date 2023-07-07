@@ -1,8 +1,20 @@
 <template>
-    <div ref="selectRef" class="fg-select" :class="{ 'fg-select--opened': isListShown }">
+    <div
+        ref="selectRef"
+        class="fg-select"
+        :class="{
+            'fg-select--opened': isListShown,
+            'fg-select--active-label': placeholderAsLabel && (modelValue || isListShown)
+        }"
+    >
         <div class="fg-select-input" @click="isListShown = !isListShown">
             <div v-if="modelValue" class="fg-select-input__value">{{ modelValue }}</div>
-            <div v-else class="fg-select-input__placeholder">Placeholder</div>
+            <div
+                v-if="placeholder || (placeholder && modelValue && placeholderAsLabel)"
+                class="fg-select-input__placeholder"
+            >
+                {{ placeholder }}
+            </div>
 
             <SvgIcon class="fg-select-input__arrow">
                 <IconChevron />
@@ -55,6 +67,7 @@ onClickOutside(selectRef, () => {
 @import '@/assets/styles/mixin.scss';
 
 $selectShadow: 0px 10px 20px -10px getColor('base-03');
+$selectPadding: 12px;
 
 .fg-select {
     $self: &;
@@ -68,10 +81,20 @@ $selectShadow: 0px 10px 20px -10px getColor('base-03');
             box-shadow: $selectShadow;
             transform: translateY(-3px);
             background: getColor('base-01');
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
         #{$self}-list {
             box-shadow: $selectShadow;
+        }
+    }
+
+    &--active-label {
+        #{$self}-input {
+            &__placeholder {
+                transform: translate(-8px, -36px);
+            }
         }
     }
 }
@@ -84,19 +107,28 @@ $selectShadow: 0px 10px 20px -10px getColor('base-03');
     height: var(--fg-form-element-height-medium);
     border-radius: var(--fg-form-element-border-radius-medium);
     background: getColor('base-02');
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: $selectPadding;
+    padding-right: $selectPadding;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     z-index: 10;
 
+    &__value {
+        position: absolute;
+        left: $selectPadding;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
     &__placeholder {
         color: getColor('base-06');
         user-select: none;
+        transition: 0.2s ease-in-out;
     }
 
     &__arrow {
-        margin-left: 8px;
+        margin-left: auto;
+        flex-shrink: 0;
     }
 
     &:hover {
@@ -136,8 +168,8 @@ $selectShadow: 0px 10px 20px -10px getColor('base-03');
     &__option {
         display: flex;
         align-items: center;
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: $selectPadding;
+        padding-right: $selectPadding;
         min-height: var(--fg-form-element-height-medium);
         cursor: pointer;
         transition: all 0.2s ease-in-out;

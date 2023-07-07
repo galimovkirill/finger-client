@@ -36,7 +36,7 @@ export const Default: Story = {
         },
 
         template: `
-            <BaseSelect v-model="selectedOption" :options="plainList" />
+            <BaseSelect v-model="selectedOption" :options="plainList" placeholder="Languages" placeholder-as-label />
         `
     })
 };
