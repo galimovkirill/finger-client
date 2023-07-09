@@ -15,7 +15,7 @@ const meta: Meta<typeof BaseSelect> = {
     decorators: [
         () => ({
             template:
-                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2" style="height: 500px;"><story /></div>'
+                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2" style="max-width: 300px; margin: 32px auto;"><story /></div>'
         })
     ]
 };
@@ -25,6 +25,23 @@ export default meta;
 type Story = StoryObj<typeof BaseSelect>;
 
 export const Default: Story = {
+    // @ts-ignore
+    render: (args) => ({
+        components: { BaseSelect },
+
+        setup() {
+            const selectedOption = ref('');
+
+            return { args, plainList, selectedOption };
+        },
+
+        template: `
+            <BaseSelect v-model="selectedOption" :options="plainList" placeholder="Languages" />
+        `
+    })
+};
+
+export const PlaceholderAsLabel: Story = {
     // @ts-ignore
     render: (args) => ({
         components: { BaseSelect },

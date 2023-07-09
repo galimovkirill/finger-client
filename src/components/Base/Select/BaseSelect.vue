@@ -9,10 +9,7 @@
     >
         <div class="fg-select-input" @click="isListShown = !isListShown">
             <div v-if="modelValue" class="fg-select-input__value">{{ modelValue }}</div>
-            <div
-                v-if="placeholder || (placeholder && modelValue && placeholderAsLabel)"
-                class="fg-select-input__placeholder"
-            >
+            <div v-if="isPlaceholderShown" class="fg-select-input__placeholder">
                 {{ placeholder }}
             </div>
 
@@ -41,10 +38,10 @@
 import SvgIcon from '@/components/SvgIcon.vue';
 import IconChevron from '@/icons/IconChevron.vue';
 import { onClickOutside } from '@vueuse/core';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { BaseSelectProps } from './BaseSelect';
 
-defineProps<BaseSelectProps<T>>();
+const props = defineProps<BaseSelectProps<T>>();
 
 const emit = defineEmits<{
     'update:modelValue': [value: T];
@@ -58,6 +55,18 @@ const selectOption = (option: T) => {
     isListShown.value = false;
 };
 
+const isPlaceholderShown = computed(() => {
+    if (props.placeholder && props.modelValue && props.placeholderAsLabel) {
+        return true;
+    }
+
+    if (props.placeholder && !props.modelValue) {
+        return true;
+    }
+
+    return false;
+});
+
 onClickOutside(selectRef, () => {
     isListShown.value = false;
 });
@@ -65,6 +74,7 @@ onClickOutside(selectRef, () => {
 
 <style lang="scss">
 @import '@/assets/styles/mixin.scss';
+@import '@/assets/styles/typography.scss';
 
 $selectShadow: 0px 10px 20px -10px getColor('base-03');
 $selectPadding: 12px;
@@ -93,7 +103,9 @@ $selectPadding: 12px;
     &--active-label {
         #{$self}-input {
             &__placeholder {
-                transform: translate(-8px, -36px);
+                @extend .text-body-s;
+                transform: translate(-8px, -32px);
+                color: inherit;
             }
         }
     }
