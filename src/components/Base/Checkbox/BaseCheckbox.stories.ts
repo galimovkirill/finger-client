@@ -11,7 +11,7 @@ const meta: Meta<typeof BaseCheckbox> = {
     decorators: [
         () => ({
             template:
-                '<div class="sb-flex sb-items-center sb-justify-center sb-gap-2"><story/></div>>'
+                '<div class="sb-flex-col sb-items-center sb-justify-center sb-gap-2"><story/></div>'
         })
     ]
 };
@@ -30,7 +30,7 @@ export const Default: Story = {
 
         template: `
             <BaseCheckbox id="privacy-policy">
-                I accept the terms of the <a href="#" target="_blank">User Agreement</a>
+                I accept the terms of the User Agreement
             </BaseCheckbox>
         `
     })
