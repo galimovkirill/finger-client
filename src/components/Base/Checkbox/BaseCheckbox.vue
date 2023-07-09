@@ -16,8 +16,6 @@
             <span class="fg-checkbox__element">
                 <svg
                     class="fg-checkbox__checkmark"
-                    width="12"
-                    height="9"
                     viewBox="0 0 12 9"
                     xmlns="http://www.w3.org/2000/svg"
                 >
@@ -120,11 +118,12 @@ const onChange = (value: boolean) => {
     &__checkmark {
         position: relative;
         z-index: 2;
-        transform: translateY(-1px);
         opacity: 0;
         fill: getColor('base-01');
         transition: 0.2s ease-in;
         transition-delay: 0.2s;
+        width: 12px;
+        height: 12px;
     }
 
     &__element {
