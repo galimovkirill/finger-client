@@ -39,7 +39,7 @@ import SvgIcon from '@/components/SvgIcon.vue';
 import IconChevron from '@/icons/IconChevron.vue';
 import { onClickOutside } from '@vueuse/core';
 import { computed, ref } from 'vue';
-import { BaseSelectProps } from './BaseSelect';
+import type { BaseSelectProps } from './BaseSelect';
 
 const props = defineProps<BaseSelectProps<T>>();
 
