@@ -1,29 +1,29 @@
 import '@/assets/styles/global.scss';
 
-import BaseAlert from '@/components/Base/Alert/BaseAlert.vue';
-import BaseAvatar from '@/components/Base/Avatar/BaseAvatar.vue';
-import BaseAvatarGroup from '@/components/Base/Avatar/BaseAvatarGroup.vue';
-import BaseButton from '@/components/Base/Button/BaseButton.vue';
-import BaseButtonGroup from '@/components/Base/Button/BaseButtonGroup.vue';
-import BaseCheckbox from '@/components/Base/Checkbox/BaseCheckbox.vue';
-import BaseChip from '@/components/Base/Chip/BaseChip.vue';
-import BaseCounter from '@/components/Base/Counter/BaseCounter.vue';
-import BaseInput from '@/components/Base/Input/BaseInput.vue';
-import BaseLoader from '@/components/Base/Loader/BaseLoader.vue';
-import BaseModal from '@/components/Base/Modal/BaseModal.vue';
-import BasePopover from '@/components/Base/Popover/BasePopover.vue';
+import FgAlert from '@/components/Alert/FgAlert.vue';
+import FgAvatar from '@/components/Avatar/FgAvatar.vue';
+import FgAvatarGroup from '@/components/Avatar/FgAvatarGroup.vue';
+import FgButton from '@/components/Button/FgButton.vue';
+import FgButtonGroup from '@/components/Button/FgButtonGroup.vue';
+import FgCheckbox from '@/components/Checkbox/FgCheckbox.vue';
+import FgChip from '@/components/Chip/FgChip.vue';
+import FgCounter from '@/components/Counter/FgCounter.vue';
+import FgInput from '@/components/Input/FgInput.vue';
+import FgLoader from '@/components/Loader/FgLoader.vue';
+import FgModal from '@/components/Modal/FgModal.vue';
+import FgPopover from '@/components/Popover/FgPopover.vue';
 
 export {
-    BaseAlert,
-    BaseAvatar,
-    BaseAvatarGroup,
-    BaseButton,
-    BaseButtonGroup,
-    BaseCheckbox,
-    BaseChip,
-    BaseCounter,
-    BaseInput,
-    BaseLoader,
-    BaseModal,
-    BasePopover
+    FgAlert,
+    FgAvatar,
+    FgAvatarGroup,
+    FgButton,
+    FgButtonGroup,
+    FgCheckbox,
+    FgChip,
+    FgCounter,
+    FgInput,
+    FgLoader,
+    FgModal,
+    FgPopover
 };
