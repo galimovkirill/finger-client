@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { FgTableProps, FgTablePropsKey } from '@/components/Table/FgTable';
+import { type FgTableProps, FgTablePropsKey } from '@/components/Table/FgTable';
 import { provide } from 'vue';
 
 const props = defineProps<FgTableProps>();
