@@ -14,7 +14,7 @@
             </div>
 
             <SvgIcon class="fg-select-input__arrow">
-                <IconChevron />
+                <IconChevronDown />
             </SvgIcon>
         </div>
 
@@ -36,7 +36,7 @@
 
 <script lang="ts" setup generic="T">
 import SvgIcon from '@/components/SvgIcon.vue';
-import IconChevron from '@/icons/IconChevron.vue';
+import IconChevronDown from '@/icons/chevron/IconChevronDown.vue';
 import { onClickOutside } from '@vueuse/core';
 import { computed, ref } from 'vue';
 import type { FgSelectProps } from './FgSelect';
