@@ -31,4 +31,8 @@ export interface FgButtonProps {
      * @description Show loader instead of content
      */
     loading?: boolean;
+    /**
+     * @description Make width and height same size (1:1 ratio)
+     */
+    square?: boolean;
 }

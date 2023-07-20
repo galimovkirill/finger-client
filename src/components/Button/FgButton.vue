@@ -117,6 +117,10 @@ const componentClasses = computed(() => {
         classes.push('fg-button--loading');
     }
 
+    if (props.square) {
+        classes.push('fg-button--square');
+    }
+
     return classes;
 });
 
@@ -223,6 +227,10 @@ const onClickHandler = (event: MouseEvent) => {
         #{$self}__wrapper {
             opacity: 0;
         }
+    }
+
+    &--square {
+        aspect-ratio: 1 / 1;
     }
 
     // Type modifiers

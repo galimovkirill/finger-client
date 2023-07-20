@@ -184,6 +184,21 @@ export const Expanded: Story = {
     })
 };
 
+export const Square: Story = {
+    render: (args) => ({
+        components: { FgButton },
+
+        setup() {
+            return { args };
+        },
+
+        template: `
+            <FgButton v-for="item in 10" :key="item" square type="flat">{{ item }}</FgButton>
+        `
+    })
+};
+
+
 export const Uppercase: Story = {
     render: (args) => ({
         components: { FgButton },
