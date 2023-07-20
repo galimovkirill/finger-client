@@ -12,6 +12,12 @@ import FgInput from '@/components/Input/FgInput.vue';
 import FgLoader from '@/components/Loader/FgLoader.vue';
 import FgModal from '@/components/Modal/FgModal.vue';
 import FgPopover from '@/components/Popover/FgPopover.vue';
+import FgSelect from '@/components/Select/FgSelect.vue';
+
+import FgTable from '@/components/Table/FgTable.vue';
+import FgTd from '@/components/Table/FgTd.vue';
+import FgTh from '@/components/Table/FgTh.vue';
+import FgTr from '@/components/Table/FgTr.vue';
 
 export {
     FgAlert,
@@ -25,5 +31,10 @@ export {
     FgInput,
     FgLoader,
     FgModal,
-    FgPopover
+    FgPopover,
+    FgSelect,
+    FgTable,
+    FgTd,
+    FgTh,
+    FgTr,
 };
