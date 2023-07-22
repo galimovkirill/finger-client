@@ -11,6 +11,7 @@
                 :value="modelValue"
                 :placeholder="placeholder"
                 class="fg-input__element"
+                :name="name"
                 @input="onInput(($event.target as HTMLInputElement).value)"
             />
 

@@ -9,4 +9,5 @@ export interface FgInputProps {
     // TODO: remove prop and define dynamically based on icon click emit
     clickableIcon?: boolean;
     invalid?: boolean;
+    name?: string;
 }
