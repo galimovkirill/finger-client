@@ -1,5 +1,9 @@
 <template>
-    <div class="fg-input" :class="inputClasses">
+    <div
+        class="fg-input"
+        :class="inputClasses"
+        :style="{ '--color-mode': invalid ? 'var(--fg-danger)' : 'var(--fg-base-06)' }"
+    >
         <div class="fg-input__wrapper">
             <input
                 ref="inputTarget"
@@ -20,6 +24,14 @@
 </template>
 
 <script lang="ts" setup>
+/**
+ * Todo list:
+ * - add invalid input message
+ * - add mask on input by prop
+ * - add copy button by prop
+ * - add different color themes
+ */
+
 import { computed, ref, useSlots } from 'vue';
 import type { FgInputProps } from './FgInput';
 import { useFocus } from '@vueuse/core';
@@ -49,6 +61,10 @@ const inputClasses = computed(() => {
 
     if (isInputFocused.value) {
         classes.push('fg-input--focused');
+    }
+
+    if (props.invalid) {
+        classes.push('fg-input--invalid');
     }
 
     return classes;
@@ -87,12 +103,13 @@ const { focused: isInputFocused } = useFocus(inputTarget);
     &__element {
         border: none;
         outline: none;
-        background: getColor('base-02');
+        background: rgba(var(--color-mode), 0.1);
         height: var(--fg-form-element-height-medium);
         border-radius: var(--fg-form-element-border-radius-medium);
         padding-left: $inputPadding;
         padding-right: $inputPadding;
         width: 100%;
+        transition: background 0.2s ease;
 
         &::placeholder {
             opacity: 0;
@@ -107,7 +124,7 @@ const { focused: isInputFocused } = useFocus(inputTarget);
         top: 0;
         height: 100%;
         pointer-events: none;
-        color: getColor('base-06');
+        color: rgb(var(--color-mode));
         transition: all 0.2s ease;
     }
 
@@ -120,7 +137,8 @@ const { focused: isInputFocused } = useFocus(inputTarget);
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: getColor('base-02');
+        background-color: rgba(var(--color-mode), 0.1);
+        fill: rgb(var(--color-mode));
 
         border-radius: var(--fg-form-element-border-radius-medium);
         transition: all 0.2s ease;
@@ -135,7 +153,7 @@ const { focused: isInputFocused } = useFocus(inputTarget);
     &--icon-start {
         #{$self}__icon {
             left: 0;
-            box-shadow: 3px 0px 5px 3px getColor('base-07', 0.03);
+            box-shadow: 3px 0px 5px 3px rgba(var(--color-mode), 0.03);
         }
 
         #{$self}__element {
@@ -150,7 +168,7 @@ const { focused: isInputFocused } = useFocus(inputTarget);
     &--icon-end {
         #{$self}__icon {
             right: 0;
-            box-shadow: -12px 0 10px -10px getColor('base-07', 0.08);
+            box-shadow: -12px 0 10px -10px rgba(var(--color-mode), 0.08);
         }
 
         #{$self}__element {

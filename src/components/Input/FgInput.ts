@@ -8,4 +8,5 @@ export interface FgInputProps {
     visiblePassword?: boolean;
     // TODO: remove prop and define dynamically based on icon click emit
     clickableIcon?: boolean;
+    invalid?: boolean;
 }

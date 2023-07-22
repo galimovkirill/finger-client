@@ -150,3 +150,50 @@ export const Password: Story = {
         `
     })
 };
+
+export const Invalid: Story = {
+    render: (args) => ({
+        components: { FgInput, SvgIcon, IconEyeCrossed, IconEye, IconUser },
+
+        setup() {
+            const value = ref('');
+            const isPasswordVisible = ref(false);
+
+            return { args, value, isPasswordVisible, FgInputTypes };
+        },
+
+        template: `
+            <FgInput
+                v-model="value"
+                :invalid="!value"
+                placeholder="Enter something"
+            />
+
+            <FgInput
+                v-model="value"
+                placeholder="Enter your password"
+                icon-position="end"
+                type="password"
+                :invalid="!value"
+                clickable-icon
+                :visible-password="isPasswordVisible"
+                @iconClick="isPasswordVisible = !isPasswordVisible"
+            >
+                <template #icon>
+                    <SvgIcon>
+                        <IconEyeCrossed v-if="isPasswordVisible" />
+                        <IconEye v-else />
+                    </SvgIcon>
+                </template>
+            </FgInput>
+
+            <FgInput :invalid="!value" v-model="value" placeholder="Enter your name">
+                <template #icon>
+                    <SvgIcon>
+                        <IconUser />
+                    </SvgIcon>
+                </template>
+            </FgInput>
+        `
+    })
+};
