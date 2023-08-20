@@ -4,7 +4,10 @@ import { computed, h, type HTMLAttributes, type PropType } from 'vue';
 
 export default {
     props: {
-        color: String as PropType<FgAvatarColor>,
+        color: {
+            type: String as PropType<FgAvatarColor | 'default'>,
+            default: 'default'
+        },
         size: {
             type: Number,
             default: 40
@@ -47,9 +50,7 @@ export default {
         const classes = computed(() => {
             const classList = ['fg-avatar'];
 
-            if (props.color) {
-                classList.push(`fg-avatar--${props.color}`);
-            }
+            classList.push(`fg-avatar--${props.color}`);
 
             return classList;
         });

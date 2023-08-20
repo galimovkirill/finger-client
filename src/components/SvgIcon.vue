@@ -14,6 +14,7 @@ import { computed } from 'vue';
 
 export interface Props {
     width?: number;
+    // eslint-disable-next-line vue/require-default-prop
     height?: number;
 }
 

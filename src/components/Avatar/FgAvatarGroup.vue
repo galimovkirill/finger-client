@@ -3,9 +3,12 @@ import { h, type VNodeArrayChildren } from 'vue';
 
 export default {
     props: {
+        /**
+         * Set 0 to display all avatars in a row
+         */
         max: {
             type: Number,
-            required: false
+            default: 0
         }
     },
     setup(props, { slots }) {
@@ -23,7 +26,7 @@ export default {
 
                 const renderElements: VNodeArrayChildren = [c];
 
-                if (props.max) {
+                if (props.max > 0) {
                     const hiddenElementsCounterDiv = h(
                         'div',
                         { class: 'fg-avatar-group__remainder' },
