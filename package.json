@@ -18,8 +18,8 @@
             "require": "./dist/finger-ui.umd.ts"
         },
         "./css": {
-            "import": "./dist/main.css",
-            "require": "./dist/main.css"
+            "import": "./dist/index.css",
+            "require": "./dist/index.css"
         }
     },
     "scripts": {
