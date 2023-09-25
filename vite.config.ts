@@ -2,54 +2,34 @@ import path, { resolve } from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
-import typescript2 from 'rollup-plugin-typescript2';
 
 export default defineConfig({
     publicDir: false,
-    plugins: [
-        vue(),
-        dts({
-            insertTypesEntry: true
-        }),
-        typescript2({
-            check: false,
-            tsconfigOverride: {
-                compilerOptions: {
-                    outDir: 'dist',
-                    sourceMap: true,
-                    declaration: true,
-                    declarationMap: true
-                }
-            },
-            exclude: ['vite.config.ts']
-        })
-    ],
-    server: {
-        port: 3000
-    },
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, 'src')
-        }
-    },
     build: {
         cssCodeSplit: true,
         lib: {
-            entry: resolve(__dirname, 'src/main.ts'),
+            entry: resolve(__dirname, 'src/components/index.ts'),
             name: 'FingerUi',
-            fileName: 'finger-ui'
+            fileName: (format) => `finger-ui.${format}.ts`
         },
         rollupOptions: {
             external: ['vue', 'vue-router', '@vueuse/core'],
             output: {
-                assetFileNames: (assetInfo) => {
-                    return assetInfo.name || '';
-                },
-                exports: 'named',
                 globals: {
                     vue: 'Vue'
                 }
             }
+        }
+    },
+    plugins: [
+        vue(),
+        dts({
+            insertTypesEntry: true
+        })
+    ],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src')
         }
     }
 });

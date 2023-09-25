@@ -1,8 +1,10 @@
 {
     "name": "@galimovdev/fg-ui",
-    "private": false,
     "version": "0.0.12",
     "type": "module",
+    "main": "./dist/finger-ui.umd.ts",
+    "module": "./dist/finger-ui.es.ts",
+    "types": "./dist/components/index.d.ts",
     "author": {
         "name": "Kirill Galimov",
         "email": "galimovdev@gmail.com"
@@ -10,17 +12,10 @@
     "files": [
         "dist"
     ],
-    "main": "./dist/finger-ui.umd.cjs",
-    "module": "./dist/finger-ui.js",
-    "publishConfig": {
-        "access": "public"
-    },
-    "types": "./dist/main.d.ts",
     "exports": {
         ".": {
-            "types": "./dist/main.d.ts",
-            "import": "./dist/finger-ui.js",
-            "require": "./dist/finger-ui.umd.cjs"
+            "import": "./dist/finger-ui.es.ts",
+            "require": "./dist/finger-ui.umd.ts"
         },
         "./css": {
             "import": "./dist/main.css",
@@ -31,12 +26,11 @@
         "build": "run-p type-check build-only",
         "preview": "vite preview",
         "build-only": "vite build",
-        "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+        "type-check": "vue-tsc --noEmit -p tsconfig.dist.json --composite false",
         "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
         "format": "prettier --write src/",
-        "storybook": "storybook dev -p 6006",
+        "storybook": "storybook dev -p 6006 -p ./tsconfig.dev.json",
         "build-storybook": "storybook build",
-        "init-msw": "msw init public/",
         "prepare": "npm run build"
     },
     "dependencies": {
@@ -56,7 +50,7 @@
         "@storybook/testing-library": "^0.2.0",
         "@storybook/vue3": "^7.3.2",
         "@storybook/vue3-vite": "^7.3.2",
-        "@tsconfig/node18": "^2.0.1",
+        "@tsconfig/node20": "^20.1.2",
         "@types/node": "^18.16.8",
         "@vitejs/plugin-vue": "^4.3.1",
         "@vue/eslint-config-prettier": "^8.0.0",
@@ -68,7 +62,6 @@
         "msw-storybook-addon": "^1.8.0",
         "npm-run-all": "^4.1.5",
         "prettier": "^3.0.2",
-        "rollup-plugin-typescript2": "^0.35.0",
         "storybook": "^7.3.2",
         "typescript": "~5.1.6",
         "vite": "^4.4.9",
