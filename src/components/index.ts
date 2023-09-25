@@ -1,3 +1,5 @@
+import '@/assets/styles/global.scss';
+
 import FgAlert from '@/components/Alert/FgAlert.vue';
 import FgAvatar from '@/components/Avatar/FgAvatar.vue';
 import FgAvatarGroup from '@/components/Avatar/FgAvatarGroup.vue';
