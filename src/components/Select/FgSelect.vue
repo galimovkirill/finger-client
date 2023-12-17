@@ -77,7 +77,7 @@ onClickOutside(selectRef, () => {
 @import '@/assets/styles/typography.scss';
 
 $selectShadow: 0px 10px 20px -10px getColor('base-03');
-$selectPadding: 12px;
+$selectPadding: 16px;
 
 .fg-select {
     $self: &;
@@ -85,6 +85,7 @@ $selectPadding: 12px;
     width: 100%;
     position: relative;
     min-width: 100px;
+    font-size: 14px;
 
     &--opened {
         #{$self}-input {
@@ -133,6 +134,7 @@ $selectPadding: 12px;
         color: getColor('base-06');
         user-select: none;
         transition: 0.2s ease-in-out;
+        font-size: 13px;
     }
 
     &__arrow {

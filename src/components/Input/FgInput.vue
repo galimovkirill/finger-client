@@ -15,7 +15,9 @@
                 @input="onInput(($event.target as HTMLInputElement).value)"
             />
 
-            <div v-if="!modelValue" class="fg-input__placeholder">{{ placeholder }}</div>
+            <div v-if="!(modelValue || modelValue === 0)" class="fg-input__placeholder">
+                {{ placeholder }}
+            </div>
 
             <div v-if="$slots.icon" class="fg-input__icon" @click="$emit('iconClick')">
                 <slot name="icon"></slot>
