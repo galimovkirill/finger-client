@@ -29,7 +29,7 @@
         "type-check": "vue-tsc --noEmit -p tsconfig.dist.json --composite false",
         "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
         "format": "prettier --write src/",
-        "storybook": "storybook dev -p 6006 -p ./tsconfig.dev.json",
+        "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
         "prepare": "npm run build"
     },

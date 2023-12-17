@@ -186,14 +186,6 @@ const { focused: isInputFocused } = useFocus(inputTarget);
             transform: translateX(3px);
             opacity: 0;
         }
-
-        &#{$self}--icon-start #{$self}__icon {
-            transform: translate(-4px, -4px);
-        }
-
-        &#{$self}--icon-end #{$self}__icon {
-            transform: translate(4px, -4px);
-        }
     }
 }
 </style>

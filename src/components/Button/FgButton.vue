@@ -238,19 +238,6 @@ const onClickHandler = (event: MouseEvent) => {
         color: getColor('text-reversed');
         background-color: rgb(var(--color-mode));
         --loader-color: var(--fg-base-01);
-
-        &#{$self}--active,
-        &:hover {
-            box-shadow: 0px 10px 20px -10px rgb(var(--color-mode));
-            transform: translateY(-3px);
-        }
-
-        &#{$self}--active {
-            &:hover {
-                transform: translate(0);
-                box-shadow: none;
-            }
-        }
     }
 
     &--flat {

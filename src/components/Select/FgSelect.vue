@@ -88,9 +88,6 @@ $selectPadding: 12px;
 
     &--opened {
         #{$self}-input {
-            box-shadow: $selectShadow;
-            transform: translateY(-3px);
-            background: getColor('base-01');
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
@@ -141,12 +138,6 @@ $selectPadding: 12px;
     &__arrow {
         margin-left: auto;
         flex-shrink: 0;
-    }
-
-    &:hover {
-        box-shadow: $selectShadow;
-        transform: translateY(-3px);
-        background: getColor('base-01');
     }
 }
 
