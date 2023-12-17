@@ -33,7 +33,7 @@ import FgAlertCloseButton from './FgAlertCloseButton.vue';
 import type { FgAlertProps } from './FgAlert';
 
 defineEmits<{
-    closeButtonClick: [];
+    'close-button-click': [];
 }>();
 
 withDefaults(defineProps<FgAlertProps>(), {
