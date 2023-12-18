@@ -1,8 +1,6 @@
 <template>
-    <div class="fg-grid">
-        <div class="fg-row" :style="rowResponsiveStyles">
-            <slot></slot>
-        </div>
+    <div class="fg-row" :style="rowResponsiveStyles">
+        <slot></slot>
     </div>
 </template>
 
@@ -31,7 +29,7 @@ const props = withDefaults(defineProps<Props>(), {
         xl: {
             horizontal: 24,
             vertical: 24
-        },
+        }
     }),
     align: () => ({ sm: 'start', md: 'start', xl: 'start' }),
     justify: () => ({ sm: 'start', md: 'start', xl: 'start' })
@@ -58,10 +56,6 @@ const rowResponsiveStyles = computed(() => {
 
 <style lang="scss">
 $columnsCount: 12;
-
-.fg-grid {
-    overflow: hidden;
-}
 
 .fg-row {
     display: flex;
