@@ -14,6 +14,9 @@ import FgModal from '@/components/Modal/FgModal.vue';
 import FgPopover from '@/components/Popover/FgPopover.vue';
 import FgSelect from '@/components/Select/FgSelect.vue';
 
+import FgGrid from '@/components/Grid/FgGrid.vue';
+import FgGridColumn from '@/components/Grid/FgGridColumn.vue';
+
 import FgTable from '@/components/Table/FgTable.vue';
 import FgTd from '@/components/Table/FgTd.vue';
 import FgTh from '@/components/Table/FgTh.vue';
@@ -33,6 +36,8 @@ export {
     FgModal,
     FgPopover,
     FgSelect,
+    FgGrid,
+    FgGridColumn,
     FgTable,
     FgTd,
     FgTh,
