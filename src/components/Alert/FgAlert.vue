@@ -31,6 +31,7 @@
 <script lang="ts" setup>
 import FgAlertCloseButton from './FgAlertCloseButton.vue';
 import type { FgAlertProps } from './FgAlert';
+import { onMounted } from 'vue';
 
 defineEmits<{
     'close-button-click': [];
@@ -39,6 +40,10 @@ defineEmits<{
 withDefaults(defineProps<FgAlertProps>(), {
     color: 'primary'
 });
+
+onMounted(() => {
+    console.log('hello docker')
+})
 </script>
 
 <style lang="scss">

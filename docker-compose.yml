@@ -1,0 +1,9 @@
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 6006:6006
+    volumes:
+      - ./:/ui
